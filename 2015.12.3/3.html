@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.js"></script>
+	<script src="myjquery1.js"></script>
+	<script>
+	$(function(){
+		// console.log($(""))
+		var lis=$(".ul");
+		var $list=$("li",lis);
+		console.log($list.length)
+		// console.log($list)
+		// console.log($list)
+		// console.log($list)
+		// console.log($lis.length)
+		// $list.each(function(i,o){
+		// 	// $(o).html(i+'----erer')
+		// 	$(this).html(i+'----erer')
+		// })
+	// console.log($list.size());
+	// console.log($list.length);
+	// console.log($list.selector)
+	// console.log($list.context)
+	// console.log($list.get())
+	// console.log($list.get(1));
+	// console.log($('li').index($('.ul>li')[4]))
+	// console.log($($lis).index())
+	// console.log($(list).index('.ul'))
+	// var aa={a:10};
+	// var bb={b:20};
+	// for(var i in aa){
+	// 	console.log(aa[i])
+	// }
+	// function extend(aa,bb){
+	// 	for(var i in bb){
+	// 		console.log(aa[i])
+	// 		console.log(bb[i])
+	// 		aa[i]=bb[i];
+	// 		console.log(aa[i])
+	// 	}
+	// }
+	// extend(aa,bb)
+	// var aa=10;
+	// $(".ul>li").each(function(i,o){
+	// 	$(this).mouseWheel(function(){
+	// 		console.log(aa)
+	// 		$($(".ul>li")[i]).html(aa++);
+	// 	},function(){
+	// 		$($(".ul>li")[i]).html(aa--);
+	// 	});
+	// })
+
+	// })
+	// var aa=10;
+	// $(".ul>li").each(function(i,o){
+	// 	$(this).mousewheel(function(){
+	// 		// console.log(aa)
+	// 		$($(".ul>li")[i]).html(aa++);
+	// 	},function(){
+	// 		$($(".ul>li")[i]).html(aa--);
+	// 	});
+	// })
+	/*
+		each:function(callback);
+
+		callback:
+				function(){
+					mw(this,upcallback,downcallback)
+				}
+	*/
+	// $("div").data("test", {first: 16, last: "pizza!"});
+	// console.log($("div").data("test").first)  //16;
+	// console.log($("div").data("test").last)  //pizza!;
+	// $($(".ul li")[0]).data("name","zhangsan");
+	// $($(".ul li")[0]).removeData("name");
+	// console.log($($(".ul li")[0]).data('name'))
+	// $($(".ul li")[0]).data("name",{age:14,role:'teacher'});
+	// console.log($($(".ul li")[0]).data('name').age)
+	// // $($(".ul li")[0]).removeData("name");
+	// console.log($($(".ul li")[0]).data('name').role)
+	// var reg = new RegExp("uek");
+	// var stat = reg.test("sxuek");
+	// alert(stat);
+	// var reg = /ueke/g;
+	// var stat = reg.test("sxuek");
+	// alert(stat);
+
+	// /\w/
+	var str="ewrw";
+	var reg=/w/;
+	// var reg=/^w/;
+	console.log(reg.test(str))
+	// /^\w$/
+	
+	jQuery.data(document.body, 'foo', 52);
+	jQuery.data(document.body, 'bar', 'test');
+
+			var aa=10;
+			$(".ul>li").each(function(i){
+				$(this).mousewheel(function(){
+					$($(".ul>li")[i]).html(aa++);
+				},function(){
+					$($(".ul>li")[i]).html(aa--);
+				})
+			})
+	})
+
+
+
+	</script>
+</head>
+<body>
+	<div></div>
+	<ul class="ul">
+		<li>0001</li>
+		<li>0002</li>
+		<li>0003</li>
+		<li>0004</li>
+		<li>0005</li>
+		<li>0006</li>
+		<li>0007</li>
+		<li>0008</li>
+		<li>0009</li>
+	</ul>
+
+</body>
+</html>

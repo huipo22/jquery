@@ -1,0 +1,35 @@
+<!--angular.js里的名词 过滤器filter-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/angular.js"></script>
+    <script>
+        /*filter也是依赖注入,跟$scope一样*/
+        angular.module("myapp",[]).controller("ctrl",["$scope","$filter",function($scope,$filter){
+            $scope.date=new Date().getTime();
+            $scope.person=[{
+              id:1,name:"Zhangsan"
+            },{
+                id:2,name:"Lisi"
+            },{
+                id:3,name:"wangwu"
+            },{
+                id:4,name:"lisi1"
+            }];
+        }])
+    </script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="ctrl">
+       <!-- {{ 33344445555 | currency:'¥':0 }}<br>
+        {{ date | date :'yyyy-MM-dd' }}<br>
+        {{334455 |number:2}}-->
+        <!--循环时 并且 过滤 ，用到 filer里的方法 orderBy -->
+        <ul ng-repeat="info in person | orderBy:'-id' ">
+            <li>{{info.id}}  {{info.name}}</li>
+        </ul>
+    </div>
+</body>
+</html>

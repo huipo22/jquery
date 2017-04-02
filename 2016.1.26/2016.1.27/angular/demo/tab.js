@@ -1,0 +1,28 @@
+/**
+ * Created by Administrator on 2016/1/27.
+ */
+angular.module("myapp",[]).controller("tabCtrl",["$scope","tabInfo",function($scope,tabInfo){
+    $scope.messages=tabInfo.messages;
+}]).service("tabInfo",function(){
+    this.messages=[
+        {title:"标题1",con:"内容1"},
+        {title:"标题2",con:"内容2"},
+        {title:"标题3",con:"内容3"},
+        {title:"标题4",con:"内容4"},
+        {title:"标题5",con:"内容5"}
+    ]
+}).directive("tab",function(){
+     return{
+         restrict:"E",
+         templateUrl:"../tpl/tpl.html",
+         replace:true,
+         link:function(scope,ele,attr){
+             angular.forEach(scope.messages,function(obj,index){
+                 scope.title=scope.messages[0].title;
+                 scope.toggle=function(title){
+                     scope.title=title;
+                 }
+             })
+         }
+     }
+})

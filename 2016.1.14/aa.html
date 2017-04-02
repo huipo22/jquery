@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+/*        body{
+            perspective: 200px;
+            perspective-origin: 50% 50%;
+        }
+        .parent{
+            width: 200px;height: 200px;background: red;
+            margin:200px auto;
+            transition: transform .5s ease;
+            transform-origin:0 0;!*变换轴*!
+            transform-style: preserve-3d;
+        }
+        .parent:hover{
+            transform:rotateX(30deg);
+        }
+        .son{
+            width: 80px;height: 80px;margin: 20px auto;
+            background: blue;
+            transform: rotateX(50deg);
+        }*/
+        .sen{
+            width: 200px;height: 200px;padding: 200px;border: 1px solid red;
+            margin: 0 auto;
+            perspective: 1000px;perspective-origin: 50% 50%;
+        }
+        .box{
+            width: 200px;height: 200px;position: relative;
+            transform-style: preserve-3d;
+            /*transition: transform 5s ease;*/
+            transform-origin: center center 100px;
+        }
+        /*.box:hover{
+            transform: rotateY(360deg);
+        }*/
+        .box div{
+            width: 100%;height: 100%;position: absolute;left: 0;padding: 0;
+            text-align: center;font-size: 30px;line-height: 200px;
+        }
+        .box div:nth-child(1){
+            background: red;transform: rotateX(90deg);
+            transform-origin: top;
+        }
+        .box div:nth-child(2){
+            background: green;transform: rotateY(-90deg);
+            transform-origin: left;
+        }
+        .box div:nth-child(3){
+            background: blue;transform: rotateY(180deg);
+        }
+        .box div:nth-child(4){
+            background: orange;transform: rotateX(-90deg);
+            transform-origin: bottom;
+        }
+        .box div:nth-child(5){
+            background: pink;transform: rotateY(90deg);
+            transform-origin: right;
+        }
+        .box div:nth-child(6){
+            background: #ccc;transform: translateZ(200px);
+        }
+        /*三角形*/
+        .san{
+            width: 0;height:0;
+            border-top: 60px solid rgba(0,0,0,0.8);
+            border-left: 30px solid rgba(0,0,0,0);
+            border-right:30px solid rgba(0,0,0,0);
+            /*border-bottom: 60px solid rgba(0,0,0,1);;*/
+            border-bottom: none;
+        }
+    </style>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+        $(function(){
+            var cx=$(".box").offset().left+$(".box").width()/2;
+            var cy=$(".box").offset().top+$(".box").height()/2;
+            $(document).mousemove(function(e){
+                var px= e.clientX-cx;
+                var py= e.clientY-cy;
+                var pz=0;
+                var m=Math.sqrt(px*px+py*py+pz*pz);
+                var mx=px/m;
+                var my=py/m;
+                var mz=pz/m;
+                $(".box").css({
+                    transform:"rotate3d("+mx+","+my+","+mz+","+m+"deg)"
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <!--<div class="parent">
+        <div class="son"></div>
+    </div>-->
+    <div class="san"></div>
+    <div class="sen">
+        <div class="box">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </div>
+</body>
+</html>

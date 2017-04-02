@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+       /* $(function(){
+            $("a").click(function () {
+                var index=$(this).index("a");
+                $(".list").css("display","none").eq(index).css("display","block");
+                /!*a--->集合   this-->当前某一个*!/
+                $("a").css("background","none").eq(index).css("background","#aaa");
+            })
+        })*/
+       /* window.onload= function () {
+            var links=document.getElementsByTagName("a");
+            var lists=document.getElementsByClassName("con")[0].getElementsByClassName("list");
+            for(var i=0;i<links.length;i++){
+               /!* (function(index){
+                    links[i].index=index;
+                    links[i].onclick=function(){
+                        for(var j=0;j<lists.length;j++){
+                            lists[j].style.display="none";
+                            links[j].style.background="none";
+                        }
+                        lists[this.index].style.display="block";
+                        this.style.background="#aaa";
+                    }
+                })(i);*!/
+               /!* links[i].index=i;
+                links[i].onclick=function(){
+                    for(var j=0;j<lists.length;j++){
+                        lists[j].style.display="none";
+                        links[j].style.background="none";
+                    }
+                    lists[this.index].style.display="block";
+                    this.style.background="#aaa";
+                }*!/
+            }
+        }*/
+
+        $(function(){
+
+            $("input").click(function(){
+                var flag=true;
+                var width=$(".bb").width();
+                if(flag){
+                    $(".bb").animate({width:0});
+                    $(".bb").animate({height:0});
+                    flag=false;
+                }else {
+                    $(".bb").animate({width:width});
+                    $(".bb").animate({height:height});
+                    flag=true;
+                }
+            })
+        })
+    </script>
+    <style>
+        .tab{
+            width: 400px;height: 300px;border: 1px solid red;
+        }
+        .title{
+            width:100%;height: 30px;background: #ccc;
+        }
+        .title a{
+            width: 25%;height: 100%;font-size: 14px;
+            float: left;text-decoration: none;color: #fff;line-height: 30px;text-align: center;
+        }
+        .con{
+            width: 100%;height: 270px;overflow: hidden;
+        }
+        .list{
+            width:100%;height: 100%;float: left;
+        }
+        .bb{
+            width:200px;height: 200px;border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="title">
+            <a href="javascript:;" style="background: #aaa">第一</a>
+            <a href="javascript:;">第二</a>
+            <a href="javascript:;">第三</a>
+            <a href="javascript:;">第四</a>
+        </div>
+        <div class="con">
+            <div class="list">0001</div>
+            <div class="list">0002</div>
+            <div class="list">0003</div>
+            <div class="list">0004</div>
+        </div>
+    </div>
+
+    <input type="button">
+    <div class="bb"></div>
+</body>
+</html>

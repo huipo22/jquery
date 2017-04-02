@@ -1,0 +1,82 @@
+<!--
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="js/angular.1.4.9.js"></script>
+    <script src="js/service/service.js"></script>
+    <script src="js/controller/controller.js"></script>
+    <script src="js/directive/directive.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="myapp">
+<div class="page-header">
+    <h1 class="text-center">Welcom to My Home <small>I am a 前端工程师</small></h1>
+</div>
+
+<div ng-controller="mainCtrl" class="container-fluid">
+   <div class="row">
+       <div class="col-sm-3">
+           <menu>
+
+           </menu>
+       </div>
+       <div class="col-sm-9">
+           <div ng-view class="view-animate">
+
+           </div>
+       </div>
+   </div>
+</div>
+
+</body>
+</html>-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular.js服务指令</title>
+    <!--bootstrap样式-->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--bootstrap 动画样式-->
+    <link rel="stylesheet" href="css/animate.css">
+    <!--引入angular.js-->
+    <script src="js/angular.1.4.9.js"></script>
+    <!--引入controller.js-->
+    <script src="js/controller/controller.js"></script>
+    <!--引入directive.js-->
+    <script src="js/directive/directive.js"></script>
+    <!--引入service.js-->
+    <script src="js/service/service.js"></script>
+    <!--引入 angular-animate.js 动画-->
+    <script src="js/angular-animate.js"></script>
+    <!--引入 angular-route.js 路由-->
+    <script src="js/angular-route.js"></script>
+    <!--引入 自己写的app.js-->
+    <script src="js/app.js"></script>
+</head>
+<!--模块启动-->
+<body ng-app="myapp">
+    <!--bootstrap样式-->
+    <div class="page-header">
+        <h1 class="text-center">前端 <small>胡辉波</small></h1>
+    </div>
+    <!--流式布局 再给一个控制器-->
+    <div class="container-fluid" ng-controller="mainCtrl">
+        <div class="row">
+            <div class="col-sm-3">
+                <menu></menu>
+            </div>
+            <div class="col-sm-9">
+                <!-- ng-view 是路由里的功能 路由控制-->
+                <div class="view-animate" ng-view=""></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

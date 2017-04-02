@@ -1,0 +1,144 @@
+/*隐藏hide*/
+@keyframes hide {
+  0%{
+    transform:scale(1,1);
+    transform-origin: left top;
+    opacity: 1;
+  }
+  100%{
+    transform: scale(0,0);
+    transform-origin: left top;
+    opacity: 0;
+  }
+}
+*[data-animate=hide]{
+  animation: hide 2s ease;
+}
+/*显示 show*/
+@keyframes show {
+  0%{
+    transform:scale(0,0);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1,1);
+    opacity: 1;
+  }
+}
+*[data-animate=show]{
+  animation: show 2s ease;
+}
+/*淡入 fadein*/
+@keyframes fadein {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+*[data-animate=fadein]{
+  animation: fadein 2s ease;
+}
+/*淡入 fadeout*/
+@keyframes fadeout {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+*[data-animate=fadeout]{
+  animation: fadeout 2s ease;
+}
+/*下拉 slideDown*/
+@keyframes slideDown {
+  0%{
+    transform: scale(1,0);
+    transform-origin: top;
+  }
+  100%{
+    transform: scale(1,1);
+  }
+}
+*[data-animate=slideDown]{
+  animation: slideDown 3s ease;
+}
+/*上去 slideUp*/
+@keyframes slideUp {
+  0%{
+    transform: scale(1,1);
+    transform-origin: top;
+  }
+  100%{
+    transform: scale(1,0);
+  }
+}
+*[data-animate=slideUp]{
+  animation: slideUp 3s ease;
+}
+/*圆周运动*/
+@r:30;
+@angle:0;
+@speed:10;
+@num:360/@speed;//分成多少份
+.round(@i:0) when (@i<=@num){
+  /*
+  0%---100%
+  @num:36;
+  @i:0---36;
+  100/36*36
+  */
+  @ds:100/@num*@i*1%;
+  @angle:@speed*@i;//角度 = 10*36
+  @{ds}{
+    /*cos()---弧度  弧度*半径+"px"------{弧度=角度*Pi/180}  */
+    /* x点的位置 cos(@angle*pi()/180)*@r*1px,sin(@angle*pi()/180)*@r*1px*/
+    transform: translate(cos(@angle*pi()/180)*@r*1px,sin(@angle*pi()/180)*@r*1px);
+  }
+  .round(@i+1);
+}
+@keyframes circle {
+  .round();
+}
+*[data-animate=circle]{
+  animation: circle 2s linear infinite;
+}
+/*曲线运动*/
+@r:40;
+@r1:20;
+@a:0;
+@a1:0;
+@p:4;
+@p1:20;
+@num:360/@p;
+@-webkit-keyframes quxian {
+  .round(@i:0) when (@i<=@num) {
+    @selector: 100/@num*@i*1%;
+    @a: @p*@i;
+    @a1:@p1*@i;
+    @{selector} {
+      transform: translate(cos(@a*pi()/180)*@r*1px, sin(@a1*pi()/180)*@r1*1px)
+    }
+
+    .round(@i+1);
+  }
+  .round();
+}
+*[data-animate=quxian]{
+  -webkit-animation:quxian 2s ease infinite;
+}
+/*旋转运动*/
+@keyframes rot {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+    -webkit-transform-origin: 50% 50%;
+  }
+}
+*[data-animate=rot]{
+  animation: rot 2s linear infinite;
+}

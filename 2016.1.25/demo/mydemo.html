@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.7.2.js"></script>
+    <script src="jquery.validate.js"></script>
+    <script src="jquery.metadata.js"></script>
+    <script>
+        /*$(function(){
+            $("form").validate();
+        })*/
+        $(function(){
+            $.validator.addMethod("phone", function(value, element) {
+                var tel =/^(131|132)\d{8}$/;
+                return tel.test(value) || this.optional(element);
+            }, "请输入正确的手机号码");
+            /*$("form").validate({
+                rules:{
+                    phone:{
+                        required:true,
+                        minlength:'5'
+                    },
+                    user:{
+                        required:true,
+                        minlength:'5'
+                    },
+                    pass:{
+                        required:true,
+                        minlength:'6'
+                    },
+                    pass1:{
+                        required:true,
+                        minlength:'6'
+                    }
+                },
+                messages:{
+                    phone:{
+                        required:'电话号码必填',
+                        minlength:'至少11位'
+                    },
+                    user:{
+                        required:'用户名必填',
+                        minlength:'至少5位'
+                    },
+                    pass:{
+                        required:'密码必填',
+                        minlength:'至少6位'
+                    },
+                    pass1:{
+                        required:"两次密码不一致",
+                        minlength:'至少6位',
+                        equalTo:"#pass"
+                    }
+                }
+            })*/
+        })
+    </script>
+</head>
+<body>
+<!--<form action="aaa">
+    user: <input type="text" class="{required:true, email:true, minlength:'5',messages:{required:'Please enter your email address', email:'至少5位'}}">
+    <input type="submit" value="提交">
+</form>-->
+<form action="aaa">
+    phone: <input type="tel" name="phone"><br>
+    user: <input type="text" name="user"><br>
+    pass: <input type="password" name="pass" id="pass"><br>
+    pass1: <input type="password" name="pass1"><br>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

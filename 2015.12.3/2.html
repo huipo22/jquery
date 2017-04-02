@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+	$(function(){
+		// alert(1)
+		// console.log($(""))
+		// $($(".box .inner")[0]).html("1").css({width:100,height:100,background:'red'})
+		// $("div").html("12345").css({width:100,height:100,background:'red'})
+		// $(document.body).html("1").css({width:100,height:100,background:'red'})
+		// $(".inner",document.body).html("1").css({width:100,height:100,background:'red'})
+		$("<div>",{
+			"class":'aaa',
+			'id':'bb',
+			style:'width:100px;height:200px;background:red',
+			css:{background:'blue'},
+			text:'34567',
+			click:function(){
+				alert(1)
+			}
+		}).appendTo('body')
+	// $("ul>li").html('erererer').css({color:'red',border:'1px solid red',width:100,height:100,listStyle:'none'})
+	// $(document.body).css( "background", "black" );
+	// $(document.myform).css({width:100,height:100,background:'red'}).hide();
+	// $('<div style="width:100px;height:100px;background:red"><p style="width:100px;height:20px;background:blue">2345</p></div').appendTo('body')
+	// $("<input>").attr("type", "checkbox").appendTo("body");
+	$("<div>", {
+		"class": "test",
+		'font':'14px', 
+		text: "Click me!",
+		click: function(){
+			// alert(1)
+			alert(this.className);
+		}
+	}).appendTo("body");
+
+	})
+	</script>
+</head>
+<body>
+	<!-- <div class="box" > -->
+<!-- 	<div class="inner">001</div>
+	<div class="inner">002</div>
+	<div class="inner">003</div>
+	<div class="inner">004</div>
+	<div class="inner">005</div>
+	<div class="inner">006</div>
+	<div class="inner">007</div>
+	<div class="inner">008</div> -->
+<!-- 	<ul>
+		<li>000001</li>
+		<li>000002</li>
+		<li>000003</li>
+		<li>000004</li>
+		<li>000005</li>
+		<li>000006</li>
+		<li>000007</li>
+		<li>000008</li>
+		<li>000009</li>
+		<li>000010</li>
+	</ul> -->
+	<form action="" name="myform"></form>
+</div>
+</body>
+</html>

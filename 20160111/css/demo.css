@@ -1,0 +1,26 @@
+div {
+  width: 200px;
+  height: 200px;
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 40%;
+  -o-border-radius: 60%;
+  -ms-border-radius: 50%;
+  border-radius: 50% ;
+  *width: 150px;
+  _width: 100px;
+}
+.ss {
+  width: 200px;
+  height: 200px;
+  -webkit-border-radius: 20% 20% 50% 50% 50%;
+  -moz-border-radius: 20% 20% 50% 50% 50%;
+  -o-border-radius: 20% 20% 50% 50% 50%;
+  -ms-border-radius: 20% 20% 50% 50% 50%;
+  border-radius: 20% 20% 50% 50% 50%;
+  border: 1px solid;
+  -webkit-box-shadow: 0 0 5px #000 inset;
+  -moz-box-shadow: 0 0 5px #000 inset;
+  -o-box-shadow: 0 0 5px #000 inset;
+  -ms-box-shadow: 0 0 5px #000 inset;
+  box-shadow: 0 0 5px #000 inset;
+}

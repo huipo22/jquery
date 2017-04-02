@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<style>
+    .bigbox{
+        height:400px;
+        width:240px;
+        margin:0 auto;
+        background: #333;
+    }
+    .box-title{
+        width:20%;
+        height:40px;
+        float:left;
+        line-height: 40px;
+    }
+    a{
+        color:#fff;
+        display: block;
+        float: left;
+    }
+    .box-con{
+        height:80%;width:100%;
+        float:left;
+        line-height:360px;color:#fff;
+        text-align: center;
+    }
+    .show{
+        display: block;
+        background: #0088cc;
+    }
+    .hide{
+        display: none;
+    }
+</style>
+<div class="bigbox">
+    <div class="box-title"  ng-repeat="mess in messages" ng-click="toggle(mess.title)">
+        {{mess.title}}
+    </div>
+        <div class="box-con" ng-repeat="mess in messages" ng-class="{show:mess.title==title,hide:mess.title!=title}">
+            {{mess.con}}
+        </div>
+</div>

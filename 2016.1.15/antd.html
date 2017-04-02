@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" href="css/response.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <style>
+        body{
+            margin: 0;padding: 0;
+        }
+        div[class*=col]{
+            height: 200px;font-size: 100px;text-align: center;border: 3px solid #ccc;
+        }
+        div[data-row]{
+            position: relative;
+        }
+        div[data-row]>div[data-row]{
+            font-size: 47px;color: red;
+            position: absolute;right: 28%;
+            top:64%;
+        }
+    </style>
+    <script>
+        $(function () {
+            var zoom=$("div[data-row=zoom]");
+            $("div[data-row=file]").hover(function(){
+                zoom.attr("data-animate","circle");
+            },function(){
+                zoom.removeAttr("data-animate");
+            })
+
+            var yumao=$("div[data-row=yumao]");
+            $("div[data-row=zlk]").hover(function(){
+                yumao.attr("data-animate","quxian");
+            },function(){
+                yumao.removeAttr("data-animate");
+            })
+
+            var wheel=$("div[data-row=wheel]");
+            $("div[data-row=message]").hover(function(){
+                wheel.attr("data-animate","rot");
+            },function(){
+                wheel.removeAttr("data-animate");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-s-12 col-m-6 col-l-4">
+                <div data-row="file">
+                    <div data-row="zoom"></div>
+                </div>
+            </div>
+            <div class="col-s-12 col-m-6 col-l-4">
+                <div data-row="zlk">
+                    <div data-row="yumao"></div>
+                </div>
+            </div>
+            <div class="col-s-12 col-m-12 col-l-4">
+                <div data-row="message">
+                    <div data-row="wheel"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

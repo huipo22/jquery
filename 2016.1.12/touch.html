@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="touch.code.baidu.com-master/touch-0.2.9.js"></script>
+    <script>
+        $(function(){
+//            touch.on('.touch', 'touchstart', function(ev){
+//                ev.startRotate();
+//                ev.preventDefault();
+//            });
+            touch.on(".touch","tap",function(e){
+                console.log(e);
+                alert(1)
+            })
+        })
+    </script>
+    <style>
+        .touch{
+            width: 100px;height: 100px;background: #a50000;border-radius: 50%;
+            position: relative;left: 0;right: 0;margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="touch"></div>
+</body>
+</html>

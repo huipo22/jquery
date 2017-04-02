@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<style>
+	.box{
+		width: 800px;
+		height: 600px;
+		border:1px solid red;
+		margin:0 auto;
+		position: relative;
+	}
+	.inner{
+		width: 100px;
+		height: 100px;
+		background: yellow;
+		position: absolute;
+		cursor: pointer;
+	}
+	</style>
+	<script src="jquery.js"></script>
+	<script>
+	$(function(){
+		var $inner=$(".inner");
+		$("input").click(function(){
+			$('<div class="inner"></div>').appendTo(".box")
+		})
+		$(".box").on("mousedown",".inner",function(eve){
+			eve.preventDefault();
+			var cx=eve.clientX;
+			var cy=eve.clientY;
+			var that=this;
+			var ox=$(that).position().left;
+			var oy=$(that).position().top;
+			$(document).mousemove(function(eve){
+				var nx=eve.clientX;
+				var ny=eve.clientY;
+				$(that).css({left:(nx-cx+ox),top:(ny-cy+oy)})
+			})
+		})
+		$(document).mouseup(function(){
+			$(document).off("mousemove")
+		})
+	})
+	</script>
+</head>
+<body>
+	<input type="button" value="创建">
+	<div class="box">
+		<div class="inner">
+			12344
+		</div>
+	</div>
+</body>
+</html>

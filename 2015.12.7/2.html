@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.js"></script>
+	<script>
+	$(function(){
+		var $box=$('<div>').css({width:40,height:30,background:'red'}).appendTo('body');
+		var $div=$('<div>').css({width:400,height:400,border:'1px solid red',margin:'0 auto'}).appendTo('body');
+		$div.remove()
+		$box.click(function(){
+			$div.appendTo('body')
+		})
+		var $form=$('<form>').appendTo($div);
+		var $user=$('<input type="text" value="请输入用户名"><br>').css({lineHeight:2}).appendTo($form);
+		var $pwd=$('<input type="password" value="1212121"><br>').appendTo($form);
+		var $login=$('<input type="button" value="登陆">').appendTo($form);
+	})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

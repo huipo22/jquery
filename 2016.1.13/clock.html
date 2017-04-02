@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .clock{
+            width: 200px;
+            height: 200px;
+            border:10px solid #aaa;
+            border-radius: 50%;
+            background:#000;
+            position: fixed;
+            left: 0;right:0;top:0;bottom:0;margin: auto;
+        }
+        .dian{
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top:95px;
+            left:94px;
+            z-index: 10;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var clock=document.getElementsByClassName("clock")[0];
+            for(var i=0; i<60;i++){
+                var w, h,l;
+                if(i%5==0){
+                    w=4;
+                    h=10;
+                }else{
+                    w=2;
+                    h=6;
+                }
+                l=(200-w)/2;
+                var div=document.createElement("div");
+                div.style.cssText="width:"+w+"px;height:"+h+"px;background:#fff;position:absolute;top:0;left:0";
+                div.style.transform="translate("+l+"px,0px) rotate("+i*6+"deg)";
+                div.style.transformOrigin="center 100px";
+                clock.appendChild(div);
+            };
+//           数字
+            for(var i=1; i<13;i++){
+                var div=document.createElement("div");
+                div.style.cssText="width:10px;height:10px;color:#fff;position:absolute;top:0;left:0;text-align:center;line-height:10px";
+                div.style.transform="translate(94px,13px) rotate("+i*30+"deg)";
+                div.style.transformOrigin="center 87px";
+                div.innerHTML=i;
+                clock.appendChild(div);
+            };
+//            指针
+            function zhizhen(w,h,c,a){
+                var div=document.createElement("div");
+                var xin=(200-h)/2;
+                div.xin=xin;
+                div.style.cssText="width:"+w+"px;height:"+h+"px;background:"+c+";position:absolute;left:0;top:0;transform:translate(100px,"+xin+"px) rotate("+a+"deg);transform-origin:left center";
+                clock.appendChild(div);
+                return div;
+            }
+            zhizhen();
+
+            var time=new Date();
+            var h=time.getHours();
+            var m=time.getMinutes();
+            var s=time.getSeconds();
+            var hp=zhizhen(30,5,"#fff",30*h-90);
+            var mp=zhizhen(50,3,"#fff",6*m-90);
+            var sp=zhizhen(70,2,"red",6*s-90);
+
+            setInterval(function(){
+                var time=new Date();
+                var h=time.getHours();
+                var m=time.getMinutes();
+                var s=time.getSeconds();
+                hp.style.transform="translate(100px,"+hp.xin+"px) rotate("+(30*h-90+(6*m)/12)+"deg)";
+                mp.style.transform="translate(100px,"+mp.xin+"px) rotate("+(6*m-90)+"deg)";
+                sp.style.transform="translate(100px,"+sp.xin+"px) rotate("+(6*s-90)+"deg)";
+            },1000);
+
+        };
+    </script>
+</head>
+<body>
+<div class="clock">
+    <div class="dian"></div>
+</div>
+</body>
+</html>

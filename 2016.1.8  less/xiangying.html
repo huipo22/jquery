@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*body{
+            margin:0;padding: 0;
+        }
+        div{
+            width: 800px;height:150px;background: red;
+        }
+        !*最小是900px  大于900px-->显示蓝色  否则显示红色*!
+        @media screen and (min-width: 900px){
+            div{
+                width: 100%;
+                background:blue;
+            }
+        }*/
+        body{
+            margin: 0;padding: 0;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        div{
+            width: 800px;
+            height:400px;
+            background: red;
+        }
+        @media screen and (min-width: 1000px){
+            /*发生改变的时候 再次设置div*/
+            div{
+                width: 100%;
+                background: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

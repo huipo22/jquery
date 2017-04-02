@@ -1,0 +1,79 @@
+html,body{
+	padding:0;margin:0;
+	width:100%;height:100%;
+	overflow: hidden;
+}
+ul,li,ol{
+	list-style: none;
+	padding:0;
+	margin:0;
+}
+a{
+	text-decoration: none;
+	color:#000;
+}
+.btn{
+	width: 100%;height: auto;
+	padding:20px 0;
+	border-radius: 20px;
+	box-shadow: 0 0 5px #000;
+	border:1px solid #333;
+	cursor:pointer;
+	text-align: center;
+	background: #ccc;
+	position: fixed;
+	left:0;top:20px;
+	z-index: 2;
+}
+textarea{
+	resize:none;width: 150px;height: 150px;
+}
+.form{
+	position:fixed;
+	left:0;top:20px;bottom: 0;right: 0;
+	/*margin:auto auto;*/
+	display:none;
+	border:1px solid #000;
+	overflow: hidden;
+	border-radius: 5px;
+	width: 0px;height: 0px;
+	padding:20px;
+	z-index: 2;
+	background: #fff;
+}
+.form input[type=text]{
+	width: 100px;
+}
+.submit{
+	width: 80%;height: auto;
+	margin:0 auto;
+	padding:10px 0;
+	border-radius: 3px;
+	background: #ccc;
+	cursor: pointer;
+	text-align: center;
+}
+.submit:active{
+	box-shadow: 0 0 3px #000;
+}
+.close{
+	width: 20px;height: 20px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 20px;
+	position: absolute;
+	right: 10px;top:10px;
+	cursor: pointer;
+	border:1px solid #333;
+	border-radius: 3px;
+}
+.message{
+	width: 100px;height: 150px;
+	background: pink;
+	left:100px;top:100px;
+	position: fixed;
+	border-radius: 15px;
+	padding:0;
+	text-align: center;
+	display:none;	
+}

@@ -1,0 +1,297 @@
+@col:12;
+@num1:730px;
+@num2:1070px;
+*{
+  box-sizing: border-box;
+}
+.clear(){
+  &:before,&:after{
+    content: "";
+    display: block;
+  }
+  &:after{
+    clear:both;
+  }
+}
+.public(){
+  margin: 0 auto;
+  .clear();
+  &>.row{
+    width: 100%;
+    .clear();
+  }
+  &-fluid{
+    width: 100%;
+    .clear();
+    &>.row{
+      width: 100%;
+      .clear();
+    }
+  }
+}
+.response(@type,@i:1) when (@i<=@col){
+  &>.row>.col-@{type}-@{i}{
+    float:left;width: @i/@col*100%;
+  }
+  &>.row>.col-@{type}-left-@{i}{
+    position: relative;right:@i/@col*100%;
+  }
+  &>.row>.col-@{type}-right-@{i}{
+    position: relative;left:@i/@col*100%;
+  }
+  &-fluid>.row>.col-@{type}-@{i}{
+    float:left;width: @i/@col*100%;
+  }
+  &-fluid>.row>.col-@{type}-left-@{i}{
+    position: relative;right:@i/@col*100%;
+  }
+  &-fluid>.row>.col-@{type}-right-@{i}{
+    position: relative;left:@i/@col*100%;
+  }
+  .response(@type,@i+1);
+}
+.container{
+  @media screen and (max-width:@num1){
+    width: @num1*1p-100px;
+    .public();
+    &>.row>.col-s-h{
+      display: none;
+    }
+    &>.row>.col-s-v{
+      display: block;
+    }
+    &-fluid>.row>.col-s-h{
+      display: none;
+    }
+    &-fluid>.row>.col-s-v{
+      display: block;
+    }
+  }
+  .response(s);
+}
+@media screen and (min-width:@num1) and (max-width:@num2) {
+  .container {
+    width: @num1;
+    margin: 0 auto;
+    .response(m);
+    &>.row>.col-m-h{
+      display: none;
+    }
+    &>.row>.col-m-v{
+      display: block;
+    }
+    &-fluid>.row>.col-m-h{
+      display: none;
+    }
+    &-fluid>.row>.col-m-v{
+      display: block;
+    }
+
+  }
+}
+@media screen and (min-width:@num2){
+  .container{
+    margin: 0 auto;
+    width: @num2;
+
+    &>.row>.col-l-h{
+      display: none;
+    }
+    &>.row>.col-l-v{
+      display: block;
+    }
+    &-fluid>.row>.col-l-h{
+      display: none;
+    }
+    &-fluid>.row>.col-l-v{
+      display: block;
+    }
+    .response(l);
+  }
+}
+//@media screen and (min-width:@num2){
+//  width: @num2;
+//
+//  .response(l);
+//}
+//.response(@type,@i:1) when (@i<=@col) {
+//  .container>.row>.col-@{type}-@{i}{
+//    float:left;width: @i/@col*100%;
+//  }
+//  .container-fluid>.row>.col-@{type}-@{i}{
+//    float:left;width: @i/@col*100%;
+//  }
+//  .response(@i+1);
+//}
+//
+//.container{
+//  width: @num1*1px-100px;
+//  margin: 0 auto;
+//  &>.row{
+//    width: 100%;
+//    .clear();
+//    &>.col-l-v{
+//      display: none;
+//    }
+//    &>.col-m-v{
+//      display: none;
+//    }
+//
+//    &>.col-s-v{
+//      display: block;
+//    }
+//    &>.col-l-h{
+//      display:block;
+//    }
+//    &>.col-m-h{
+//      display:block;
+//    }
+//
+//    &>.col-s-h{
+//       display: none;
+//    }
+//
+//  }
+//  &-fluid{
+//    width: 100%;
+//    &>.row{
+//      width: 100%;
+//      .clear();
+//      &>.col-l-v{
+//        display: none;
+//      }
+//      &>.col-m-v{
+//        display: none;
+//      }
+//
+//      &>.col-s-v{
+//        display: block;
+//      }
+//      &>.col-l-h{
+//        display:block;
+//      }
+//      &>.col-m-h{
+//        display:block;
+//      }
+//
+//      &>.col-s-h{
+//        display: none;
+//      }
+//    }
+//  }
+//}
+//.clear(){
+//  &>.row:before,&>.row:after{
+//    content: "";
+//    display: block;
+//  }
+//  &>.row:after{
+//    clear:both;
+//  }
+//}
+//.response(s);
+//.response(@type,@i:1) when (@i<=@col){
+//    .container>.row>.col-@{type}-@{i}{
+//      float:left;width: @i/@col*100%;
+//    }
+//    .container>.row>.col-@{type}-left-@{i}{
+//      position: relative;right:@i/@col*100%;
+//    }
+//    .container>.row>.col-@{type}-right-@{i}{
+//      position: relative;left:@i/@col*100%;
+//    }
+//    .container-fluid>.row>.col-@{type}-@{i}{
+//      float:left;width: @i/@col*100%;
+//    }
+//    .container-fluid>.row>.col-@{type}-left-@{i}{
+//      position: relative;right:@i/@col*100%;
+//    }
+//    .container-fluid>.row>.col-@{type}-right-@{i}{
+//      position: relative;left:@i/@col*100%;
+//    }
+//    .response(@type,@i+1);
+//}
+//@media screen and (min-width:@num1){
+//  .container{
+//    width: @num1;
+//  }
+//  .container>.row>.col-s-v{
+//    display: none;
+//  }
+//  .container>.row>.col-l-v{
+//    display: none;
+//  }
+//  .container>.row>.col-m-v{
+//    display: block;
+//  }
+//  .container>.row>.col-s-h{
+//    display:block;
+//  }
+//  .container>.row>.col-l-h{
+//    display: block;
+//  }
+//  .container>.row>.col-m-h{
+//    display: none;
+//  }
+//  .container-fluid>.row>.col-s-v{
+//    display: none;
+//  }
+//  .container-fluid>.row>.col-l-v{
+//    display: none;
+//  }
+//  .container-fluid>.row>.col-m-v{
+//    display: block;
+//  }
+//  .container-fluid>.row>.col-s-h{
+//    display:block;
+//  }
+//  .container-fluid>.row>.col-l-h{
+//    display: block;
+//  }
+//  .container-fluid>.row>.col-m-h{
+//    display: none;
+//  }
+//  .response(m);
+//}
+//@media screen and (min-width:@num2){
+//  .container{
+//    width: @num2;
+//  }
+//  .container>.row>.col-s-v{
+//    display: none;
+//  }
+//  .container>.row>.col-m-v{
+//    display: none;
+//  }
+//  .container>.row>.col-l-v{
+//    display: block;
+//  }
+//  .container>.row>.col-s-h{
+//    display:block;
+//  }
+//  .container>.row>.col-m-h{
+//    display: block;
+//  }
+//  .container>.row>.col-l-h{
+//    display: none;
+//  }
+//  .container-fluid>.row>.col-s-v{
+//    display: none;
+//  }
+//  .container-fluid>.row>.col-m-v{
+//    display: none;
+//  }
+//  .container-fluid>.row>.col-l-v{
+//    display: block;
+//  }
+//  .container-fluid>.row>.col-s-h{
+//    display:block;
+//  }
+//  .container-fluid>.row>.col-m-h{
+//    display: block;
+//  }
+//  .container-fluid>.row>.col-l-h{
+//    display: none;
+//  }
+//  .response(l);
+//}

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function aa(selector){
+            if(typeof selector=="string"){
+                if(/^[a-z][1-6a-z]{0,10}$/.test(selector)){//正则匹配字符串
+                    var objs=document.getElementsByTagName(selector);
+                    for(var i=0;i<objs.length;i++){
+                        this[i]=objs[i]
+                    }
+                    this.length=objs.length;
+                }else if(selector.charAt(0)=="."){
+                    var objs=this.getClass(selector.slice(1));
+                    for(var i=0;i<objs.length;i++){
+                        this[i]=objs[i]
+                    }
+                    this.length=objs.length;
+                }else if(selector.charAt(0)=="#"){
+                    var objs=document.getElementById(selector.slice(1));
+                    this.length=1;
+                }else if(/^<[a-z][1-6a-z]{0,10}>$/i.test(selector)) {
+                    var objs = document.createElement(selector.slice(1, -1));
+                    this[0] = objs;
+                    this.length = 1;
+                }else if(selector.nodeType==1){
+                    this[0]=objs;
+                    this.length=1;
+                }
+            }else if(typeof selector=="function"){
+                this.ready(selector);
+            }
+        }
+        aa.prototype={
+            size:function(){
+                return this.length;
+            },
+            each:function(callback){
+                //内部循环 每链式调用一次，内部就调用each函数一次
+              for(var i=0;i<this.length;i++){
+                  //callback(下标，内容)
+                  //callback(键，值) 实参
+                  callback(i,this[i]);
+              }
+            },
+            ready:function(fn){
+                document.addEventListener("DOMContentLoaded",function(){
+                    fn();
+                },false);
+            },
+            html:function(val){
+                //callback(i,this[i]);----function(index,obj)
+                this.each(function(index,obj){
+                    if(val){
+                        obj.innerHTML=val;
+                    }else{
+                        return obj.innerHTML;
+                    }
+                });
+                return this;
+            },
+            css:function(cssobj){
+            //形参
+                this.each(function(index,obj){
+                     for(var i in cssobj){
+                         obj.style[i]=cssobj[i];
+                     }
+                });
+                return this;
+            },
+            click:function(callback){
+                this.each(function(index,obj) {
+                    obj.onclick= function () {
+                        callback();
+                    }
+                });
+                return this;
+            },
+            getClass:function(classname,obj){
+                var obj=obj||document;
+                if(obj.getElementsByClassName){//FF
+                    return obj.getElementsByClassName(classname);
+                }else{//IE
+                    var arr=[];
+                    var all=obj.getElementsByTagName("*");
+                    for(var i=0;i<all.length;i++){
+                        if(checkClass(all[i].className,classname)){
+                            arr.push(all[i]);
+                        }
+                    }
+                    return arr;
+                }
+            },
+            checkClass:function(str,classname){
+                var newarr=str.split(" ");
+                for(var i=0;i<newarr.length;i++){
+                    if(newarr[i]==classname){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        };
+        function $(selector){
+            //var ee=new aa();
+            return new aa(selector);
+        }
+        $(function(){
+//            console.log($("div").length)
+           console.log($("div"))
+           $("div").html("a").css({width:"100px",height:"100px","border":"1px solid red"}).click(function(){
+                alert(1)
+           });
+//            $("<div>").appendTo(document.body).css({width:"100px",height:"100px","border":"1px solid red"});
+        })
+
+        function person(){
+            this.name="zhangsan";
+            this.play=function(){
+                alert("play")
+            }
+        }
+        person.prototype={
+            run:function(){
+                alert("run");
+            }
+        }
+//        alert(new person().name);
+
+//        var stu=person.prototype;
+//        stu.run()
+        Array.prototype.order=function(){
+            for(var i=0;i<this.length;i++){
+                for(var j=i+1;j<this.length;j++){
+                    if(this[i]<this[j]){
+                        var temp=this[i];
+                        this[i]=this[j];
+                        this[j]=temp;
+                    }
+                }
+            }
+            return this;
+        }
+        var arr=[1,5,2,9,3];
+        console.log(arr.order());
+
+
+
+
+
+        var obj={name:"zhangsan",age:"34",play:function(){
+            alert(1)
+        },son:{name:"xiaozhangsan"}};
+        alert(obj.son.name);
+
+        var obj1=extend(obj);
+//        obj1.name="lisi";
+        obj1.son.name="xiaolisi"
+        alert(obj.son.name);
+
+        function extend(obj){
+            var newobj={};
+            for(var i in obj){
+                if(typeof obj[i]=="object"){
+                    newobj[i]=extend(obj[i])
+                }else{
+                    newobj[i]=obj[i];
+                }
+            }
+            return newobj;
+        }
+        //初始类型--->传值
+        newobj["name"]=obj['name'];
+        newobj['age']=obj['age']
+        //引用类型--->传址
+        newobj['play']=obj['play'];
+        newobj['son']=obj['son']
+       /* window.onload=function(){
+            var bb=document.getElementsByTagName("div")[0];
+            bb.style.cssText="width:100px;height:100px;border:1px solid red"
+            document.body.appendChild(bb);
+//            console.log(bb.style.cssText)
+//            console.log(document.getElementsByTagName("div")[0])
+//            document.body.style.cssText="background:#000";
+            console.log(document.body)
+        }*/
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+</body>
+</html>

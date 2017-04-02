@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+		margin: 0;
+	}
+	</style>
+</head>
+<body style="height:3000px">
+	<div class="out" style="width:600px;height:600px;margin:0 auto;border:1px solid blue;position:absolute;left:200px;top:200px">
+		<div class="box"></div>	
+	</div>
+	<script src="./jquery.js"></script>
+	<script>
+	$(function(){
+		$(".box").css({width:400,height:400,border:"12px solid red",background:'yellow',position:'absolute',left:45,top:45,padding:200});
+		$(".box").width(450);
+		$(".box").height(550);
+		console.log($(".box").height());
+		console.log($(".box").width());
+		console.log($(".box").innerWidth())
+		console.log($(".box").outerWidth())
+		// console.log($(".box").position())
+		// // console.log($(".box").offset())
+		// // $(".box").offset({left:20,top:20})
+		// console.log($(".box").offset().left);
+		// console.log($(".box").offset().top);
+	})
+// $(window).scroll(function(){
+// 	console.log($(window).scrollTop())
+// })
+	
+	</script>
+</body>
+</html>

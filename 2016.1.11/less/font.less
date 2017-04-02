@@ -1,0 +1,48 @@
+@font-face {font-family: 'demo';
+  src: url('../iconfont/iconfont.eot'); /* IE9*/
+  src: url('../iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../iconfont/iconfont.woff') format('woff'), /* chrome、firefox */
+  url('../iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('../iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+/*变量*/
+@name1:xiala;
+@name2:baojia;
+
+@con1:e600;
+@con2:e601;
+
+.for(@i:1)when(@i<=2){
+  @n:"name@{i}";
+  @n1:@@n;/*变量*/
+  @c:"con@{i}";/*字符串*/
+  @c1:@@c;
+  *[data-row="@{n1}"]:before{
+    content: "\@{c1}";/*字符串*/
+    font-family: demo;
+  }
+  *[data-row="@{n1}"][icon-pos="top"]:before{
+    display: block;
+    content: "\@{c1}";/*字符串*/
+    font-family: demo;
+  }
+  *[data-row="@{n1}"][icon-pos="right"]:before{
+    content: "\@{c1}";/*字符串*/
+    font-family: demo;
+  }
+  *[data-row="@{n1}"][icon-pos="right"]:after{
+    content: "";/*字符串*/
+    font-family: demo;
+  }
+  *[data-row="@{n1}"][icon-pos="bottom"]:before{
+    content: "";/*字符串*/
+    font-family: demo;
+  }
+  *[data-row="@{n1}"][icon-pos="bottom"]:after{
+    display: block;
+    content: "\@{c1}";/*字符串*/
+    font-family: demo;
+  }
+  .for(@i+1);
+}
+.for();

@@ -1,0 +1,43 @@
+header{
+    width: 100%;height: 44px;background: #000;
+}
+.header{
+    max-width: 1024px;height: 100%;text-align: center;line-height: 44px;
+    margin: 0 auto;color:#fff;
+}
+.header-con{
+    width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+    line-height: 44px;
+}
+.header2{
+    display: none;
+}
+*[text-l]{
+    text-align: left;
+}
+*[text-c]{
+    text-align: center;
+}
+*[text-r]{
+    text-align: right;
+}
+.row div{
+    color:#ffffff;
+}
+.inner{
+    position: relative;color:#ffffff;
+}
+.inner .son{
+    position: absolute;
+    top:44px;
+    left:0;
+    width: 300%;
+    display: none;
+}
+.son li{
+    height: 44px;
+    color:#000;
+    background: #ccc;
+}

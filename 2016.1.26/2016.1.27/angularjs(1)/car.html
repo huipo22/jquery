@@ -1,0 +1,56 @@
+<table class="table">
+
+    <thead>
+    <tr>
+        <th>
+            编号
+            <span ng-click="paixu('id')" ng-class="{'glyphicon glyphicon-triangle-top':orderType=='-',' glyphicon glyphicon-triangle-bottom':orderType==''}"></span>
+        </th>
+        <th>
+            名称
+            <span ng-click="paixu('name')" ng-class="{'glyphicon glyphicon-triangle-top':orderType=='-',' glyphicon glyphicon-triangle-bottom':orderType==''}"></span>
+
+        </th>
+        <th>
+            单价
+            <span ng-click="paixu('price')" ng-class="{'glyphicon glyphicon-triangle-top':orderType=='-',' glyphicon glyphicon-triangle-bottom':orderType==''}"></span>
+
+        </th>
+        <th>
+            数量
+            <span ng-click="paixu('num')" ng-class="{'glyphicon glyphicon-triangle-top':orderType=='-',' glyphicon glyphicon-triangle-bottom':orderType==''}"></span>
+
+        </th>
+        <th>
+            商品总价
+            <span ng-click="paixu('all')" ng-class="{'glyphicon glyphicon-triangle-top':orderType=='-',' glyphicon glyphicon-triangle-bottom':orderType==''}"></span>
+
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+    </thead>
+    <tbody  ng-show="infos.length ">
+    <tr ng-repeat="info in infos| filter:search| orderBy:orderType+type">
+        <td ng-bind="info.id"></td>
+        <td ng-bind="info.name"></td>
+        <td ng-bind="info.price"></td>
+        <td><button type="button" class="btn btn-success" ng-click="jian(info.id)">-</button><input type="text" value="{{info.num}}" ng-model="info.num"><button type="button" class="btn btn-success" ng-click="jia(info.id)">+</button></td>
+        <td>{{info.all()}}</td>
+        <td><button type="button" class="btn btn-primary" ng-click="del(info.id)">删除</button></td>
+    </tr>
+    <tr>
+        <td>总价</td>
+        <td>{{all()}}</td>
+        <td>数量</td>
+        <td>{{nums()}}</td>
+        <td><button type="button" class="btn btn-warning" ng-click="clear()">清空购物车</button></td>
+    </tr>
+    </tbody>
+    <thead ng-hide="infos.length">
+    <tr>
+        <td colspan="6">购物车没东西</td>
+    </tr>
+    </thead>
+</table>

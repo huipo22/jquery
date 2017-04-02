@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="response/response.css">
+    <style>
+        /*div[class*=cols]{
+            height: 200px;border: 1px solid red;
+        }*/
+        .container{
+            height: 300px;border: 1px solid;
+        }
+        .container>.row{
+            height: 100%;
+        }
+        .inner{
+            height: 300px;
+        }
+        .inner>.row{
+            height: 100%;
+        }
+        .inner>.row>div{
+            height: 50%;border: 1px solid red;
+        }
+        .container>.row>div{
+            height:100%
+        }
+        .aa{
+            height:25%;border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="container">
+    <div class="row">
+        &lt;!&ndash;
+            cols-s-v  &#45;&#45;&#45;&#45; visiable
+            cols-s-h  &#45;&#45;&#45;&#45; hidden
+
+            cols-s-left-1 -&#45;&#45;&#45;&#45;  交换位置  &#45;&#45;&#45;&#45;&#45;&#45;利用定位
+            执行顺序问题   要执行的cols-s-v 放在最后执行
+            样式改变的时候
+            cols-l-3 会覆盖 cols-m-6
+            cols-m-6 会覆盖 cols-s-12
+        &ndash;&gt;
+        <div class="cols-s-3 ">1</div>
+        <div class="cols-s-3 cols-s-right-6">2</div>
+        <div class="cols-s-3 ">3</div>
+        <div class="cols-s-3 cols-s-left-6">4</div>
+    </div>
+</div>-->
+    <div class="container">
+        <div class="row">
+            <div class="cols-s-8 cols-m-9">
+                <div class="container-fluid inner">
+                    <div class="row">
+                        <div class="cols-s-12 cols-m-8">1</div>
+                        <!--小屏的时候占12个  大瓶的时候占8个-->
+                        <div class="cols-s-6 cols-m-4">2</div>
+                        <div class="cols-s-6 cols-m-4">3</div>
+                        <!--小屏的时候占6个  大瓶的时候占4个-->
+                        <div class="cols-s-h cols-m-8">4</div>
+                        <!--小屏的时候隐藏  大屏的时候显示-->
+                    </div>
+                </div>
+            </div>
+            <div class="cols-s-4 cols-m-3">
+                <div class="aa">1</div>
+                <div class="aa">2</div>
+                <div class="aa">3</div>
+                <div class="aa">4</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+@font-face {
+  font-family: 'demo';
+  src: url('../iconfont/iconfont.eot');
+  /* IE9*/
+  src: url('../iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../iconfont/iconfont.woff') format('woff'), /* chrome、firefox */ url('../iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../iconfont/iconfont.svg#iconfont') format('svg');
+  /* iOS 4.1- */
+}
+/*变量*/
+/*变量*/
+/*字符串*/
+/*
+考虑这个在哪里  总是相对来说  相对于a的上面   设置before
+                            相对于a的下面   设置after   before 设为‘’ 空
+                            相对于a的左面   设置before
+                            相对于a的右面    设置before  after 设为‘’ 空
+*/
+*[data-row="email"]:before {
+  content: "\e600";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="email"][icon-pos="top"]:before {
+  display: block;
+  content: "\e600";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="email"][icon-pos="right"]:before {
+  content: "\e600";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="email"][icon-pos="right"]:after {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="email"][icon-pos="bottom"]:before {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="email"][icon-pos="bottom"]:after {
+  display: block;
+  content: "\e600";
+  /*字符串*/
+  font-family: demo;
+}
+/*变量*/
+/*字符串*/
+/*
+考虑这个在哪里  总是相对来说  相对于a的上面   设置before
+                            相对于a的下面   设置after   before 设为‘’ 空
+                            相对于a的左面   设置before
+                            相对于a的右面    设置before  after 设为‘’ 空
+*/
+*[data-row="phone"]:before {
+  content: "\e602";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="phone"][icon-pos="top"]:before {
+  display: block;
+  content: "\e602";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="phone"][icon-pos="right"]:before {
+  content: "\e602";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="phone"][icon-pos="right"]:after {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="phone"][icon-pos="bottom"]:before {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="phone"][icon-pos="bottom"]:after {
+  display: block;
+  content: "\e602";
+  /*字符串*/
+  font-family: demo;
+}
+/*变量*/
+/*字符串*/
+/*
+考虑这个在哪里  总是相对来说  相对于a的上面   设置before
+                            相对于a的下面   设置after   before 设为‘’ 空
+                            相对于a的左面   设置before
+                            相对于a的右面    设置before  after 设为‘’ 空
+*/
+*[data-row="cloth"]:before {
+  content: "\e603";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="cloth"][icon-pos="top"]:before {
+  display: block;
+  content: "\e603";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="cloth"][icon-pos="right"]:before {
+  content: "\e603";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="cloth"][icon-pos="right"]:after {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="cloth"][icon-pos="bottom"]:before {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="cloth"][icon-pos="bottom"]:after {
+  display: block;
+  content: "\e603";
+  /*字符串*/
+  font-family: demo;
+}
+/*变量*/
+/*字符串*/
+/*
+考虑这个在哪里  总是相对来说  相对于a的上面   设置before
+                            相对于a的下面   设置after   before 设为‘’ 空
+                            相对于a的左面   设置before
+                            相对于a的右面    设置before  after 设为‘’ 空
+*/
+*[data-row="desk"]:before {
+  content: "\e604";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="desk"][icon-pos="top"]:before {
+  display: block;
+  content: "\e604";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="desk"][icon-pos="right"]:before {
+  content: "\e604";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="desk"][icon-pos="right"]:after {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="desk"][icon-pos="bottom"]:before {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="desk"][icon-pos="bottom"]:after {
+  display: block;
+  content: "\e604";
+  /*字符串*/
+  font-family: demo;
+}
+/*变量*/
+/*字符串*/
+/*
+考虑这个在哪里  总是相对来说  相对于a的上面   设置before
+                            相对于a的下面   设置after   before 设为‘’ 空
+                            相对于a的左面   设置before
+                            相对于a的右面    设置before  after 设为‘’ 空
+*/
+*[data-row="qq"]:before {
+  content: "\e601";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="qq"][icon-pos="top"]:before {
+  display: block;
+  content: "\e601";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="qq"][icon-pos="right"]:before {
+  content: "\e601";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="qq"][icon-pos="right"]:after {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="qq"][icon-pos="bottom"]:before {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="qq"][icon-pos="bottom"]:after {
+  display: block;
+  content: "\e601";
+  /*字符串*/
+  font-family: demo;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<!-- <script src="jquery.js"></script> -->
+	<script>
+		function trim(str,type){
+			type=type||"b"
+			if(type=="l"){
+				return str.replace(/^\s*/g,"")
+			}else if(type=="r"){
+				return str.replace(/\s*$/g,"")
+			}else if(type=="b"){
+				return str.replace(/^\s*|\s*$/g,"")
+			}else if(type=="a"){
+				return str.replace(/\s*/g,"")
+			}else if(type=="c"){
+				var lreg=/^\s*/;
+				var rreg=/\s*$/
+				return lreg.exec(str)[0]+str.replace(/\s*/g,"")+rreg.exec(str)[0]
+			}
+		}
+		var str="   a  确定  487   9 1    "
+		str="("+trim(str,"c")+")"
+		alert(str)
+	</script>
+</head>
+<body>
+	<div>
+		<span class="one"></span>
+	</div>
+	<ul>
+		<span class="one two">
+			
+		</span>
+	</ul>
+</body>
+</html>

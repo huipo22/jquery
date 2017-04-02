@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .clock{
+            width: 200px;height: 200px;background: #000;position: fixed;
+            left: 0;top: 0;right: 0;bottom: 0;margin: auto;
+            border: 10px solid #aaa;
+            border-radius: 50%;
+            background:radial-gradient(#fff,#ccc);
+            /*径向渐变*/
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var clock=document.getElementsByClassName("clock")[0];
+            createC();
+            createK();
+            var time=new Date();
+            var h=time.getHours();
+            var m=time.getMinutes();
+            var s=time.getSeconds();
+            var hP=createP(40,6,"#000",30*h-90+(6*m)/12);
+            var mP=createP(60,4,"green",6*m-90);
+            var sP=createP(80,3,"blue",6*s-90);
+            setInterval(function(){
+                var time=new Date();
+                var h=time.getHours();
+                var m=time.getMinutes();
+                var s=time.getSeconds();
+                /*
+                对应位置
+                * 30*h-90+(6*m)----连接字符串时，需要加括号
+                * */
+                hP.style.transform="translate(100px,"+hP.t+"px) rotate("+(30*h-90+(6*m)/12)+"deg)";
+                mP.style.transform="translate(100px,"+mP.t+"px) rotate("+(6*m-90)+"deg)";
+                sP.style.transform="translate(100px,"+sP.t+"px) rotate("+(6*s-90)+"deg)";
+            },1000)
+
+            function createC(){
+                /*循环创建div---时针*/
+                for(var i=0;i<60;i++){
+                    var w,h,l;
+                    /*
+                    12个小时对应12个长的div---w=4
+                    * */
+                    if(i%5==0){
+                        w=4;
+                        h=10;
+                    }else{
+                        w=2;
+                        h=6
+                    }
+                    l=(200-w)/2;/*宽度居中*/
+                    var div=document.createElement("div");
+                    div.style.cssText="width:"+w+"px;height:"+h+"px;background:#000;position:absolute;left:0;top:0";
+                    /*对元素进行移动 旋转  放在中间 并且旋转的度数是i*6deg*/
+                    div.style.transform="translate("+l+"px,0px) rotate("+i*6+"deg)";
+                    /*对元素的原点进行设置  不设置的话--默认根据本身旋转*/
+                    div.style.transformOrigin="50% 100px";
+                    clock.appendChild(div);
+                }
+            }
+            function createK(){
+                for(var i=1;i<13;i++){
+                    var div=document.createElement("div");
+                    div.style.cssText="width:10px;height:10px;position:absolute;left:0;top:0;";
+                    div.style.transform="translate(94px,0px) rotate("+30*i+"deg)";
+                    div.style.transformOrigin="50% 100px";
+                    div.innerHTML=i;
+                    clock.appendChild(div);
+                }
+            }
+            function createP(w,h,c,a){
+                /*      分针，秒针
+                w----宽度
+                * h----高度
+                * c----颜色
+                * a----弧度
+                * */
+                var div=document.createElement("div");
+                var t=(200-h)/2;/*高度居中*/
+                /*t保存到div的属性中*/
+                div.t=t;
+                /*对元素进行 移动 旋转   原点的设置*/
+                div.style.cssText="width:"+w+"px;height:"+h+"px;background:"+c+";position:absolute;left:0;top:0;transform:translate(100px,"+t+"px) rotate("+a+"deg); transform-origin:0 50%";
+            clock.appendChild(div);
+                return div;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="clock"></div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+document.ready 表示文档结构加载完成 
+onload 表示页面包含图片等文件在内的所有元素加载完成
+
+onload弊端  加载多个函数

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.js"></script>
+	<style>
+	body,ul,li{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	a{
+		color: #333;
+		text-decoration: none;
+	}
+	.nav{
+		width: 960px;
+		height: 50px;
+		background: #666;
+		margin: 0 auto;
+	}
+	.nav li{
+		width: 25%;
+		height: 100%;
+		text-align: center;
+		line-height: 50px;
+		float: left;
+	}
+	.nav li a{
+		display: block;
+		width: 100%;
+		/*height: 100%;*/
+	}
+	.nav li>a:hover{
+		background: #009494;
+		color:#fff;
+	}
+	.nav .list{
+		/*height: 100%;*/
+		display: none;
+		border:1px solid #666;
+	}
+	.nav .list a{
+		width: 100%;
+	} 
+	.nav .list a:hover{
+		background: #666;
+		color: #fff;
+	}
+	</style>
+	<script>
+	$(function(){
+		var $lis=$('.nav li');
+		$lis.hover(function(){
+			// $(this).find('.list').stop(true).slideDown();
+			$(this).find('.list').finish().slideDown();
+		},function(){
+			$(this).find('.list').slideUp();
+		})
+	})
+	</script>
+</head>
+<body>
+	<ul class="nav">
+		<li>
+			<a href="#">首页</a>
+		</li>
+		<li>
+			<a href="#">新闻</a>
+			<div class="list">
+				<a href="#">国内</a>
+				<a href="#">国外</a>
+				<a href="#">国际</a>
+			</div>
+		</li>
+		<li>
+			<a href="#">体育</a>
+			<div class="list">
+				<a href="#">篮球</a>
+				<a href="#">足球</a>
+				<a href="#">羽毛球</a>
+			</div>
+		</li>
+		<li>
+			<a href="#">财经</a>
+			<div class="list">
+				<a href="#">生活</a>
+				<a href="#">经济</a>
+				<a href="#">国际</a>
+			</div>
+		</li>
+	</ul>
+</body>
+</html>

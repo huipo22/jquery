@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		width: 960px;
+		height: 600px;
+		border:1px solid red;
+		margin: 20px auto;
+	}
+	.inner{
+		width: 100px;
+		height: 100px;
+		background: pink;
+		margin: 10px;
+		float: left;
+	}
+	</style>
+	<script src="jquery.js"></script>
+	<script>
+	$(function(){
+		var num=1
+		$('input').click(function(){
+			$('<div class="inner">'+(num++)+'</div>').appendTo('.box')
+		})
+		// $('.box').on('click','.inner',function(){
+		// 	$(this).css('background','green')
+		// })
+		$('.box').delegate('.inner','click mouseover',function(){
+			$(this).css('background','green')
+		})
+	})
+	</script>
+</head>
+<body>
+	<input type="button" value="创建">
+	<div class="box">
+		<div class="inner">1</div>
+		<div class="inner">2</div>
+		<div class="inner">3</div>
+		<div class="inner">4</div>
+		<div class="inner">5</div>
+	</div>
+</body>
+</html>

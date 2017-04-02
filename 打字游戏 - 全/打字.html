@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>打字游戏</title>
+	<script src="game.js"></script>
+	<script src="animate.js"></script>
+	<!--添加背景音乐-->
+	<!--[if IE]>
+	<bgsound src='HGS.mp3' >
+	<![endif]-->
+	<![if !IE]>
+	<audio src='HGS.mp3' autoplay="autoplay" loop="-1">
+	</audio>
+	<![endif]>
+	<script>
+		window.onload=function(){
+			var startbox=document.getElementsByClassName('start')[0];
+			var start=document.getElementById('start');
+			var input=document.getElementsByTagName('input')[0];
+			//var input=document.getElementsByTagName('input')[0];
+			start.onclick=function(){
+				animate(startbox,{opacity:0},500,function(){
+					startbox.style.display="none";
+				});
+				var newstep=input.value;
+				var obj=new game();
+				obj.step=newstep;
+				var stepSpan=document.getElementById("stepbox");
+				stepSpan.innerHTML=newstep;
+				obj.stepNum=(newstep-1)*5+10;
+				obj.speed=(newstep-1)+5;
+				if(newstep>11){
+					newstep=11;
+				}
+				obj.letterLength=(newstep-1)+4;
+				//obj.step=1||input.value;
+				setTimeout(function(){
+					obj.play();
+				},2000)
+				
+			}
+		}
+	</script>
+	<style>
+		html,body{
+			width:100%;height:100%;overflow: hidden;background: #120E03 url(img/bj1.jpg) no-repeat center center;background-size: 100% 100%;padding: 0;margin: 0;
+		}
+		.start{
+			width: 532px;height: 300px;
+			position: fixed;left: 0;top: 0;right: 0;bottom: 0;margin: auto auto;
+			background: url(img/bg-start.png) no-repeat 0 0;
+			background-size: 532px 300px;
+			z-index: 100;
+		}
+		.start img{
+			width: 150px;height: 150px;
+			position: absolute;top: 50px;left: 80px;
+		}
+		.select{
+			width: 200px;height: 150px;
+			position: absolute;right: 80px;top: 90px;
+		}
+		.select span{
+			display: block;
+			width: 100px;height: 30px;
+			margin: 0 auto;
+			text-align: center;line-height: 30px;
+			font-size: 16px;color: #666;
+		}
+		.select input{
+			display: block;
+			width: 150px;height: 20px;
+			margin: 10px auto;
+			text-align: center;line-height: 30px;
+			font-size: 16px;color: #666;
+		}
+		#start{
+			display: block;
+			width: 75px;height: 25px;
+			position: absolute;bottom: 61px;left: 218px;
+		}
+		.text{
+			position: fixed;left: 44%;top: 25%;
+		}
+		.message{
+			height: 80px;width: 100%;position: fixed;top: 0;left: 0;z-index: 999;
+		}
+		.message div{
+			float: left;height: 80px;width: 33.3333%;text-align: center;line-height: 80px;
+		}
+		.message div img{
+			height: 80px;width: 80px;vertical-align: middle;
+		}
+		.message div span{
+			height: 80px;width: auto;margin-left: 10px;color: #fff;color: #fff;font-size: 26px;vertical-align: bottom;
+		}
+		.next{
+			width: 532px;height: 300px;
+			position: fixed;left: 0;top: 0;right: 0;bottom: 0;margin: auto auto;
+			background: url(img/bg-next.png) no-repeat 0 0;
+			background-size: 532px 300px;
+			display: none;opacity: 0;
+			z-index: 100;
+		}
+		.next img{
+			position: absolute;top: 100px;right: 130px;
+		}
+		.mes{
+			width: 150px;height: 100px;
+			position: absolute;top: 120px;left: 120px;
+			font-size: 12px;color: #c3560f;
+		}
+		#go{
+			display: block;
+			width: 75px;height: 25px;
+			position: absolute;bottom: 51px;left: 218px;
+		}
+		.fail{
+			width: 532px;height: 300px;
+			position: fixed;left: 0;top: 0;right: 0;bottom: 0;margin: auto auto;
+			background: url(img/bg-again.png) no-repeat 0 0;
+			background-size: 532px 300px;
+			display: none;opacity: 0;
+			z-index: 100;
+		}
+		.fail img{
+			position: absolute;top: 100px;right: 130px;
+		}
+		.score{
+			width: 150px;height: 100px;
+			position: absolute;top: 70px;left: 100px;
+			font-size: 12px;color: #c3560f;
+		}
+		#again{
+			display: block;
+			width: 75px;height: 25px;
+			position: absolute;bottom: 51px;left: 218px;
+		}
+		.back,.close{
+			display: block;
+			width: 20px;height: 20px;
+			position: absolute;top: 11px;right: 67px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="start">
+		<img src="img/start.gif" alt="">
+		<div class="select">
+			<span>选择关卡: </span><input type="number" min="1" value="1">
+		</div>
+		<a href="javascript:;" id="start"></a>
+	</div>
+	<!-- <input type="text" class="text" value="请选择关卡数"> -->
+	<div class="message">
+		<div>
+			<img src="img/score.png" alt="分数" style="width:70px;height:70px;margin-top:-20px;">
+			<span>0</span>
+		</div>
+		<div>
+			<img src="img/heart.png" alt="生命">
+			<span>10</span>
+		</div>
+		<div>
+			<img src="img/step.png" alt="关卡" style="width:60px;height:60px">
+			<span id="stepbox">1</span>
+		</div>
+	</div>
+	<div class="next">
+		<div class="mes">
+			下一关: 第&nbsp;<span id="step"></span>&nbsp;关<br><br>
+			难度: <span id="difficult"></span>
+		</div>
+		<a href="javascript:;" id="go"></a>
+		<a href="javascript:;" class="close"></a>
+		<img src="img/success.gif" alt="">
+	</div>
+	<div class="fail">
+		<div class="score">
+			您的最终得分为: &nbsp;&nbsp;&nbsp;&nbsp;<span id="score"></span>分
+		</div>
+		<a href="javascript:;" id="again"></a>
+		<a href="javascript:;" class="back"></a>
+		<img src="img/fail.gif" alt="">
+	</div>
+</body>
+</html>

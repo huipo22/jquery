@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        @-webkit-keyframes aa {
+           0%{
+               width: 400px;height: 400px;background: red;
+               transform: translate(200px 200px);
+               transform-origin: 50% 50%;
+           }
+           /* 50%{
+                width: 200px;
+            }*/
+            100%{
+                width: 100px;height: 100px;background: blue;
+                transform: translate(50px 50px);
+                transform-origin: 50% 50%;
+            }
+        }
+        @-webkit-keyframes cc {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        /*.rot{
+            width: 200px;height: 200px;background: red;
+            animation: cc .3s infinite linear;
+        }*/
+        @-webkit-keyframes bo {
+            0%{
+                transform:translate(0,0);
+            }
+            20%{
+                transform:translate(10px,20px);
+            }
+            30%{
+                transform:translate(20px,0);
+            }
+            40%{
+                transform:translate(30px,20px);
+            }
+            50%{
+                transform:translate(40px,20px);
+            }
+            60%{
+                transform:translate(50px,0);
+            }
+            70%{
+                transform:translate(60px,20px);
+            }
+            80%{
+                transform:translate(70px,0);
+            }
+            90%{
+                transform:translate(80px,20px);
+            }
+            100%{
+                transform:translate(40px,0);
+            }
+        }
+        /*.bol{
+            width: 200px;height: 50px;background: red;
+            animation: bo 2s infinite linear;
+        }*/
+        /*div{
+            !*animation: aa 5s;*!
+            animation-name: bb;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            !*animation-delay: 1s;*!
+            animation-direction:alternate;
+            animation-timing-function: linear;
+            !*animation-play-state: running;*!
+            !*animation-play-state: paused;*!
+            !*animation-fill-mode: forwards;*!
+            !*animation-fill-mode: backwards;*!
+        }*/
+        @keyframes yuan {
+           0%{
+               transform: translate(0,0);
+           }
+            100%{
+                transform: translate();
+            }
+        }
+        .yuan{
+            width: 50%;height: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="yuan"></div>
+    <div class="bol"></div>
+    <div class="rot"></div>
+</body>
+</html>

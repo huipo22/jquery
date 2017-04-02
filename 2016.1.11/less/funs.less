@@ -1,0 +1,21 @@
+.radius (@r1:50%,@r2:50%,@r3:50%,@r4:50%){
+  -webkit-border-radius: @arguments;
+  -moz-border-radius: @arguments;
+  -o-border-radius:@arguments;
+  -ms-border-radius:@arguments;
+  border-radius:@arguments;
+}
+.box-shadow (@inset:true,@x:0px,@y:0px,@px:5px,@c:#000) when(@inset=true){
+  -webkit-box-shadow: @x @y @px @c inset;
+  -moz-box-shadow: @x @y @px @c inset;
+  -o-box-shadow:@x @y @px @c inset;
+  -ms-box-shadow:@x @y @px @c inset;
+  box-shadow:@x @y @px @c inset;
+}
+.box-shadow (@inset:false,@x:0px,@y:0px,@px:5px,@c:#000) when(@inset=false){
+  -webkit-box-shadow: @x @y @px @c;
+  -moz-box-shadow:@x @y @px @c;
+  -o-box-shadow:@x @y @px @c;
+  -ms-box-shadow:@x @y @px @c;
+  box-shadow:@x @y @px @c;
+}

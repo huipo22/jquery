@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular</title>
+    <script src="angular.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="car.js"></script>
+</head>
+<body ng-app="myapp">
+<div ng-controller="ctrl">
+    <div class="container table-responsive">
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="搜索" ng-model="search">
+                </div>
+            </div>
+        </form>
+        <car></car>
+    </div>
+</div>
+
+<!--<input type="text" ng-model="data">-->
+<!--<div>{{data}}</div>-->
+<!--<div>{{data}}</div>-->
+<!--<div>{{data}}</div>-->
+<!--<div>{{data}}</div>-->
+
+
+
+</body>
+</html>

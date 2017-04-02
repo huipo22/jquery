@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <script>
+        angular.module("parent",["$scope",function($scope){
+            $scope.messages=[{
+                id:1,name:"asd"
+            },{
+                id:3,name:"www"
+            },{
+                id:2,name:"ddd"
+            }]
+        }])
+    </script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="parent">
+        <!--{{2134123|currency:""}}-->
+        {{messages|filter}}
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/canvs.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/canvs.js"></script>
+    <script src="js/shape.js"></script>
+</head>
+<body>
+    <div class="out">
+        <div class="nav">
+            <div class="file">
+                <span>文件</span>
+                <ul class="file-son">
+                    <li>新建</li>
+                    <li>保存</li>
+                    <li>后退</li>
+                </ul>
+            </div>
+            <div class="home">主页</div>
+        </div>
+        <ul class="menu">
+            <li class="parent hasson huatu">
+                <span>画图</span>
+                <ul class="son">
+                    <li data-role="line">
+                        <span class="xian"></span>
+                    </li>
+                    <li data-role="rect">
+                        <span class="juxing"></span>
+                    </li>
+                    <li data-role="arc">
+                        <span class="circle"></span>
+                    </li>
+                    <li data-role="five">五角星</li>
+                </ul>
+            </li>
+            <li class="parent hasson">
+                <span>画图方式</span>
+                <ul class="son">
+                    <li data-role="pen">铅笔</li>
+                    <li data-role="stroke">画线</li>
+                    <li data-role="fill">填充</li>
+                </ul>
+            </li>
+            <li class="parent hasson">
+                <span>线条宽度</span>
+                <ul class="son">
+                    <li data-role="1">
+                        <span class="xi"></span>
+                        细
+                    </li>
+                    <li data-role="3">
+                        <span class="zhong"></span>
+                        中
+                    </li>
+                    <li data-role="5">
+                        <span class="cu"></span>
+                        粗
+                    </li>
+                </ul>
+            </li>
+            <li class="parent line">
+                <span>线条颜色</span>
+                <ul class="son">
+                    <li>
+                        <input type="color">
+                    </li>
+                </ul>
+            </li>
+            <li class="parent fill">
+                <span>填充颜色</span>
+                <ul class="son">
+                    <li>
+                        <input type="color">
+                    </li>
+                </ul>
+            </li>
+            <li class="parent hasson xp">
+                <span>擦除</span>
+                <ul class="son">
+                    <li data-role="8" class="small">
+                        <span class="small"></span>
+                    </li>
+                    <li data-role="12" class="middle">
+                        <span class="middle"></span>
+                    </li>
+                    <li data-role="16" class="big">
+                        <span class="big"></span>
+                    </li>
+                </ul>
+            </li>
+            <li class="parent">
+                <span class="select">选择</span>
+                <ul class="son">
+                    <li class="xuanze"></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="box">
+            <div class="copy"></div>
+            <canvas></canvas>
+            <div class="cachu"></div>
+            <div class="selectA"></div>
+        </div>
+    </div>
+</body>
+</html>

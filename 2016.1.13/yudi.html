@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+        * 雨滴动起来的原理：利用transition-----在等待的时间  让top改变-----从原来的-20px改变到clientH。
+        * */
+        window.onload= function () {
+            var arr=[];
+            var clientW=document.documentElement.clientWidth;
+            var clientH=document.documentElement.clientHeight;
+            for(var i=0;i<400;i++){
+                var time=3*Math.random();/*每次都有变化*/
+                var lefts=10+(clientW-20)*Math.random();/*在当前窗口里面 每次循环都不一样，放在循环里面*/
+                var yud=document.createElement("div");
+                yud.style.cssText="width:1px;height:20px;background:rgba(255,255,255,0.5);position:absolute;left:"+lefts+"px;top:-20px;transition:top 0.5s linear "+time+"s;-webkit-filter:blur(1px);";/*注意字符串的连接 还有空格的问题*/
+                document.body.appendChild(yud);
+                arr.push(yud);
+            }
+
+            /*动画函数*/
+            setTimeout(function(){
+               for(var i=0;i<arr.length;i++){
+                   arr[i].style.top=clientH+"px";
+//                   console.log(clientH)
+                   /*监测transition事件 */
+                   arr[i].addEventListener("webkitTransitionEnd",function(){
+                       this.style.transition="none";/*清除transition */
+                       this.style.top=-20+"px";/*设置top*/
+                       this.style.left=10+(clientW-20)*Math.random()+"px";/*设置left*/
+                       var that=this;
+                       /*动画函数*/
+                       setTimeout(function(){
+                           /*注意空格问题*/
+                           that.style.transition="top 0.5s linear "+2*Math.random()+"s";
+                           that.style.top=clientH+"px";
+                       },0);
+                   },false)
+               }
+            },0)
+        }
+    </script>
+    <style>
+        html,body{
+            width: 100%;height: 100%;background:#000;overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>

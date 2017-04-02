@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="fn.js"></script>
+    <script>
+        window.onload=function(){
+            var box=document.getElementsByTagName("div")[1];
+//            var span=document.getElementsByClassName("span")[0];
+//            console.log(getFirst(box))
+//            console.log(getLast(box))
+//            var dd=document.createElement("a")
+//            dd.innerHTML="dddddddddd";
+//            box.insertBefore(dd,span);
+//            var text=document.createTextNode("TTTT");
+//            document.body.appendChild(text);
+            /*addEvent(box,"click",function(){
+                alert(1)
+            })
+            removeEvent(box,"click")*/
+            box.onmousedown=function(e){
+                var ox= e.offsetX;
+                var oy= e.offsetY;
+                console.log(e)
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="out">
+    <!--<input type="text">-->
+    <div class="box" style="width: 100px;height: 100px;border: 1px solid red">
+        <span>tttt</span>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/angular.js"></script>
+    <script>
+        (function(){
+            window.angular={};
+            angular.module=function(app){
+                var root=document.querySelectorAll('*[ng-app='+app+']')[0];
+                angular.$rootscope=[];
+                return {
+                    controller:controller(root),
+                    directive:directive(root)
+                }
+            };
+            function controller(ele){
+                return function(name,fn){
+                    var obj=ele.querySelectorAll('*[ng-controller='+name+']')[0];
+                    var $scope={};
+                    angular.$rootscope.push($scope);
+                    fn($scope);
+
+                }
+            }
+            function directive(ele){
+                return function(name){
+                    var obj=ele.querySelectorAll('input['+name+']')[0];
+                    var val=obj.getAttribute(name);
+
+
+                    var newval;
+                    angular.$rootscope.forEach(function(obj){
+                        newval='';
+                        for(var i in obj){
+                            if(i==val){
+                                newval=obj[i];
+                                return;
+                            }
+                        }
+                    })
+                    var reg=new RegExp('\\{\\{\\s*('+val+')\\s*\\}\\}','g');
+                    var obj=ele.querySelectorAll('input['+name+']')[0];
+
+                    var con=ele.innerHTML;
+                    con.replace(reg,function(obj,index){
+                        return '<div class="my-ng"></div>'
+                    })
+                    ele.innerHTML=con;
+
+                    obj.oninput=function(){
+                        newval=obj.value;
+                        var div=ele.querySelectorAll('.my_ng');
+                        for(var i=0;i<div.length;i++){
+                            div[i].innerHTML=newval;
+                        }
+                    }
+                    obj.value=newval;
+
+                }
+            }
+        })()
+        window.onload=function(){
+            angular.module('myapp').controller('my',function($scope){
+                $scope.data='123';
+            }).directive('ng-module');
+        }
+
+    </script>
+</head>
+<body ng-app="myapp">
+<div ng-controller="my">
+    <!--<div ng-controller="my">-->
+    <!--<input type="text" ng-model="data" oninput/>-->
+    <!--{{data}}-->
+    <!--</div>-->
+
+    <input type="text" ng-model="data">
+    <div>{{data}}</div>
+</div>
+
+</body>
+</html>

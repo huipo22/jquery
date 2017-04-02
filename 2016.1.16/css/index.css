@@ -1,0 +1,40 @@
+h3 {
+  text-align: center;
+  -webkit-user-select: none;
+}
+.add {
+  cursor: pointer;
+  text-align: center;
+}
+form {
+  width: 30%;
+  padding: 10px;
+  display: none;
+  border-radius: 5px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  border: 1px solid #000;
+  height: 300px;
+  -webkit-user-select: none;
+}
+.con {
+  width: 30%;
+  height: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+.con-con {
+  width: 100%;
+  padding: 5px;
+  height: 60px!important;
+  overflow-y: scroll!important;
+  -webkit-user-select: none;
+}

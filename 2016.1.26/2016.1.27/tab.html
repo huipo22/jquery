@@ -1,0 +1,18 @@
+
+<div class="panel panel-default" >
+    <div class="panel-heading">
+        <!--循环     点击事件 ng-click="toggle(item.title)" -->
+        <a href="javascript:;" ng-repeat="item in messages" ng-click="toggle(item.title)">
+            {{item.title}}
+        </a>
+    </div>v
+    <div>
+        <!--
+        如果 item.title 为真 --- item.con显示
+                        为假 --- item.con不显示
+        -->
+        <div class="panel-body" ng-repeat="item in messages" ng-class="{show:item.title==title,hide:item!==title}">
+            {{item.con}}
+        </div>
+    </div>
+</div>

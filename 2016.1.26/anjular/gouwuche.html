@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="index.js"></script>
+</head>
+<body ng-app="myapp">
+   <div class="container table-responsive" ng-controller="carCtr" >
+       <form class="form-inline">
+           <div class="form-group">
+               <label class="sr-only" for="exampleInputAmount">搜索</label>
+               <div class="input-group">
+                   <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                   <input type="text" class="form-control" id="exampleInputAmount" placeholder="搜索" ng-model="search">
+               </div>
+           </div>
+       </form>
+    <car></car>
+   </div>
+</body>
+</html>

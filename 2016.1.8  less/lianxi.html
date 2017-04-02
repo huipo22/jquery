@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*body{
+            margin: 0;padding: 0;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .out{
+            width: 400px;
+            height: auto;
+            margin: 0 auto;
+        }
+        .out:after,.out:before{
+            content: "";
+            display: block;
+        }
+        .out:after{
+            clear: both;
+        }
+        .inner{
+            width:50%;
+            height:200px;
+            float: left;
+            border: 1px solid red;
+        }
+        @media screen and (min-width: 800px){
+            .out{
+                width: 800px;
+            }
+            .inner{
+                width: 25%;
+            }
+        }*/
+        /*body{
+            margin: 0;padding: 0;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .out{
+            width: 500px;height: 200px;border: 1px solid red;margin:0 auto;overflow: hidden;
+        }
+        .inner{
+            width: 33.3333%;height: 100%;border: 1px solid red;float: left;
+        }
+        @media screen and (min-width: 800px){
+            !*发生改变的时候 再次设置 .out  .inner*!
+            .out{
+                width: 800px;
+            }
+            .inner{
+                width:20%;;
+            }
+        }*/
+        body{
+            margin: 0;padding: 0;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .out{
+            width: 500px;height: 200px;border: 1px solid red;margin: 0 auto;overflow: hidden;
+        }
+        .inner{
+            width: 33.3%;height: 100%;border: 1px solid red;float: left;
+        }
+        @media screen and (min-width: 900px){
+            .out{
+                width: 100%;
+            }
+            .inner{
+                width: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="out">
+        <div class="inner">1</div>
+        <div class="inner">2</div>
+        <div class="inner">3</div>
+        <div class="inner">4</div>
+        <div class="inner">5</div>
+    </div>
+</body>
+</html>

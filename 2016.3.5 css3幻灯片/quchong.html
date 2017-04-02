@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>去重</title>
+    <script>
+        window.onload=function(){
+            Array.prototype.deReapt=function(){
+                var res=[];
+                var json={};
+                for(var i=0;i<this.length;i++){
+//                    console.log(this);
+                    /*this指的是要传进来的数组*/
+                    if(!json[this[i]]){
+                        res.push(this[i]);
+//                        console.log(this[i]);
+                        /*赋一个新的属性*/
+                        json[this[i]]='e';
+                        console.log(json)
+                    }
+                }
+                return res;
+            }
+            var arr=[1,0,2,7,1,4,4,5];
+            alert(arr.deReapt());
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

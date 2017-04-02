@@ -1,0 +1,49 @@
+/*/*添加一个模块  依赖注入一个 services是模块名称*/
+angular.module("services",[]).service("menuService",function($http){
+    this.menuInfos=[
+        {
+            title:"标题一",
+            son:[
+                {"title":"标题1-1",link:"#/list"},
+                {"title":"标题1-2",link:"#/table"},
+                {"title":"标题1-3",link:"#/form"}
+            ]
+        },
+        {
+            title:"标题二",
+            son:[
+                {"title":"标题2-1",link:"#/list"},
+                {"title":"标题2-2",link:"#/list"},
+                {"title":"标题2-3",link:"#/list"}
+            ]
+        },
+        {
+            title:"标题三",
+            son:[
+                {"title":"标题3-1",link:"#/list"},
+                {"title":"标题3-2",link:"#/list"},
+                {"title":"标题3-3",link:"#/list"}
+            ]
+        }
+
+    ];
+
+    this.tables=[
+        {
+          name:"zhangsan",age:12,sex:"man"
+        },
+        {
+            name:"zhangsan",age:12,sex:"man"
+        },
+        {
+            name:"zhangsan",age:12,sex:"man"
+        },
+        {
+            name:"zhangsan",age:12,sex:"man"
+        },
+        {
+            name:"zhangsan",age:12,sex:"man"
+        }
+
+    ]
+})

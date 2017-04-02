@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function aa(){//外
+            var i=0;
+            console.log(i);
+            return function () {//内
+                i++;
+                console.log(i)
+            }
+        }
+//        aa();//0
+//        aa();//0   调用外层函数   里层函数没有执行
+        var bb=aa();//0
+        bb();//1   闭包 调用里层函数  执行return 的函数--》使用了局部变量i
+        //bb指向  返回的函数  闭包
+        bb();//2
+//        aa();//0
+//        console.log(i)// 错误
+    </script>
+</head>
+<body>
+
+</body>
+</html>

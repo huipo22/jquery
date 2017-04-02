@@ -1,0 +1,144 @@
+body,ul,li{
+    padding: 0;
+    margin: 0;list-style: none;
+}
+a{
+    text-decoration: none;
+    color:#fff;
+}
+header{
+    width: 100%;
+    height: 44px;
+    background: #000000;
+}
+.header{
+    max-width: 1024px;
+    height: 100%;
+    text-align: center;
+    line-height: 44px;
+    margin: 0 auto;
+}
+.header2{
+    display: none;
+}
+.header2 .header-con{
+    margin-top: -19px;
+}
+*[text-l]{
+    text-align: left;
+    padding-left: 12px;
+}
+*[text-c]{
+    text-align: center;
+}
+*[text-r]{
+    text-align: right;
+    padding-right: 12px;
+}
+.row div{
+    color:#fff;
+}
+.btn{
+    position: relative;color:#ffffff;
+}
+.btn .son{
+    position: absolute;
+    top:44px;
+    left:0;
+    width: 300%;
+    display: none;
+    z-index: 10;
+}
+.son li{
+    height: 44px;
+    color:#fff;
+    background: #000;
+    padding-left: 12px;
+}
+.banner-center{
+    text-align: center;
+}
+h1{
+    font-size: 30px;/*margin-top: 24px;*/
+    color:#000;
+}
+h2{
+    font-size: 20px;
+}
+span{
+    font-size: 12px;
+}
+.inner{
+    border: 2px solid #fff;
+    height: 200px;background-size: cover;background-position: center;
+}
+.inner:nth-child(1){
+    background: url("../img/1.jpg") no-repeat center;
+    background-size: cover;
+}
+.inner:nth-child(2){
+    background: url("../img/2.jpg") no-repeat center;
+    background-size: cover;
+}
+.inner:nth-child(3){
+    background: url("../img/3.jpg") no-repeat center;
+    background-size: cover;
+}
+.inner:nth-child(4){
+    background: url("../img/4.jpg") no-repeat center;
+    background-size: cover;
+}
+@media screen and (max-width: 768px) {
+    h1{font-size: 30px;}
+    h2{font-size: 20px;}
+    span{font-size: 14px;}
+}
+@media screen and (min-width: 768px) {
+    h1{font-size: 40px;}
+    h2{font-size: 24px;}
+    span{font-size: 18px;}
+}
+@media screen and (max-width: 1024px) {
+    .header2{display: block;}
+    .header1{display: none;}
+}
+.tub{
+    width: 100%;height: 600px;
+    position: relative;overflow: hidden;
+}
+.tub .box{
+    width: 500%;height: 100%;
+}
+.banner{
+    background: url(../img/large2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 20%;height: 100%;float: left;
+}
+.list{
+    width: 300px;height: 30px;position: absolute;
+    bottom:10px;left: 0;right: 0;margin: auto;
+    /*border: 1px solid red;*/
+}
+.list li{
+    width: 30px;height: 30px;margin: 0 10px;border: 1px solid red;float: left;border-radius: 50%;
+    background: #888888;
+}
+.list li:first-child{
+    background: none;
+}
+.view-list{
+    float: left;/*border: 1px solid red;*/
+}
+
+.view-list h1{
+    font-size: 20px;
+}
+.view-list li{
+    color: #000;
+}
+.view-ul{
+    background: #ccc;
+}
+

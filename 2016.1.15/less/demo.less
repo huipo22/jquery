@@ -1,0 +1,9 @@
+@import "var.less";
+@import "funs.less";
+div{
+  width: @width;
+  height: @height;
+  border: 1px solid @color;
+  .radius(50%,50%,50%,50%);
+  .box-shadow(@x:10px,@y:10px,@px:10px,@c:#000,@inset: false);
+}

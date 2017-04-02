@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/angular.js"></script>
+    <script>
+        angular.module("myapp",[]).controller("formCtrl",["$scope",function($scope){
+
+        }]).directive("passWord",function(){
+            return{
+                restrict:"A",
+                require:"ngModel",
+                link:function(a,b,c,d){
+                    var attrValue= c.passWord;
+                    var target=document.getElementsByName('password');
+                    var same=function(val){
+                        if(val==target.value){
+                            d.$setValidity("same",true)
+                        }else{
+                            d.$setValidity("same",false)
+                        }
+                        return val;
+                    }
+                    d.$parsers.push(same);
+                }
+            }
+        }).directive("userName",function(){
+            return {
+                restrict:"A",
+                require:"ngModel",
+                link:function(a,b,c,d){
+                    var url= c.ajax;
+                    alert(url)
+                    var ajax=function(val){
+                        if(val==url){
+                            d.$setValidity("ajax",false)
+                        }else{
+                            d.$setValidity("ajax",true)
+                        }
+                    }
+                    d.$parsers.push(ajax);
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+<div ng-app="myapp" ng-controller="formCtrl">
+    <form class="form-horizontal" name="myform">
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">UserName</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="inputEmail3" name="user" placeholder="user">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail4" class="col-sm-2 control-label">UserName</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="inputEmail4" name="user" placeholder="user1" user-name="ajax:demo1.html" required ng-model="user" ng-show="myform.user.ajax">
+            </div>
+            <div class="col-sm-2">
+                用户名已存在
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">pass</label>
+            <div class="col-sm-8">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="pass1"  name="password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword4" class="col-sm-2 control-label">pass1</label>
+            <div class="col-sm-8">
+                <input type="password" class="form-control" id="inputPassword4" placeholder="pass2" required pass-word="pass1" ng-minlength="4" ng-model="pass1.password" ng-show="myform.password.$error">
+            </div>
+            <div class="col-sm-2">
+                至少是4位
+                两次密码一致
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Sign in</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

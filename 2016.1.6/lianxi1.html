@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-1.11.3.js"></script>
+    <script src="mouseWheel.js"></script>
+    <script src="demo.js"></script>
+    <script>
+/*     $(function () {
+         $("div").mouseWheel(function () {
+             $(this).css("width",$(this).width()+5)
+         },function(){
+             $(this).css("width",$(this).width()-5)
+         })
+     })*/
+//        alert(navigator.platform)//win32
+
+
+
+       /* $(function(){
+//           $("div").animate({width:300},3000);//后
+//           $("div").css("background","red")//单线程  异步机制   先
+
+            $("div").queue("fx",function(){//入列
+                $("div").animate({width:300},3000);
+                $(this).dequeue();//出列
+            })
+//            $("div").animate({height:300},3000);
+            $("div").queue("fx",function(){
+                $("div").css("background","red");
+                $(this).dequeue();
+            });
+            $("div").queue("fx",function(){
+                $("div").css("height","100px");
+                $(this).dequeue();
+            });
+        })*/
+        $();
+        var a=jQuery.noConflict(true);
+        a(function(){
+//            a("div").css("background","yellow")
+//            a("div").css({background:"red",width:400})
+            a("div").click(function(){
+                a(this).css({width:function(index,cc){// 内部调用each()方法
+                    console.log(cc)
+                    return parseFloat(cc) * 1.2;
+                },height:function(index,value){
+                    return parseFloat(value) * 1.2;
+                }})
+            })
+        })
+    </script>
+    <style>
+        div{
+            width: 200px;height: 200px;border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

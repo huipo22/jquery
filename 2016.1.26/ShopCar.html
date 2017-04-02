@@ -1,0 +1,57 @@
+<table class="table">
+    <thead>
+    <tr>
+        <td>
+            编号
+            <!--
+                -  箭头向上
+                '' 箭头向下
+            -->
+            <span ng-click="sort('id')" ng-class="{'glyphicon glyphicon-triangle-top':orderType=='-','glyphicon glyphicon-triangle-bottom':orderType=='' }"></span>
+        </td>
+        <td>
+            衣服
+            <span ng-click="sort('name')" ng-class="{'glyphicon glyphicon-triangle-top':orderType=='-','glyphicon glyphicon-triangle-bottom':orderType=='' }"></span>
+        </td>
+        <td>
+            单价
+            <span ng-click="sort('price')" ng-class="{'glyphicon glyphicon-triangle-top':orderType=='-','glyphicon glyphicon-triangle-bottom':orderType=='' }"></span>
+        </td>
+        <td>
+            数量
+            <span ng-click="sort('num')" ng-class="{'glyphicon glyphicon-triangle-top':orderType=='-','glyphicon glyphicon-triangle-bottom':orderType=='' }"></span>
+        </td>
+        <td>
+            总价
+            <span ng-click="sort('all()')" ng-class="{'glyphicon glyphicon-triangle-top':orderType=='-','glyphicon glyphicon-triangle-bottom':orderType=='' }"></span>
+        </td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody ng-show="infos.length">
+    <!--
+        filter:search与ng-model="search"相关联
+    -->
+    <tr ng-repeat="info in infos | filter:search | orderBy:orderType+ item ">
+        <td ng-bind="info.id"></td>
+        <td ng-bind="info.name"></td>
+        <td ng-bind="info.price"></td>
+        <td><button type="button" class="btn btn-success" ng-click="jian(info.id)">-</button>
+            <input type="text" value="{{info.num}}"><button type="button" class="btn btn-success" ng-click="jia(info.id)">+</button></td>
+        <td ng-bind="info.price*info.num"></td>
+        <td><button type="button" class="btn btn-success" ng-click="del(info.id)">删除</button></td>
+    </tr>
+    <tr>
+        <td>总价</td>
+        <td ng-bind="all()"></td>
+        <td>总数</td>
+        <td ng-bind="Sum()"></td>
+        <td><button type="button" class="btn btn-success" ng-click="clear()">清空购物车</button></td>
+    </tr>
+    </tbody>
+    <thead ng-hide="infos.length">
+    <tr>
+        <td>没有东西</td>
+    </tr>
+    </thead>
+</table>

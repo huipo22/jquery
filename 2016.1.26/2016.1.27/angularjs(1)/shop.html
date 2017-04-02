@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <script src="js/angular.js"></script>
+    <script src="js/car.js"></script>
+</head>
+<body ng-app="myapp">
+<div class="container table-responsive" ng-controller="carCtrl">
+    <form class="navbar-form pull-left">
+        <input type="text" class="span2" ng-model="search">
+        <button type="submit" class="btn">Submit</button>
+    </form>
+    <car></car>
+</div>
+</body>
+</html>
+
+

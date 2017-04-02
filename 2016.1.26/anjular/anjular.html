@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <script>
+        //指令 directive
+        //MV              VM
+       //数据->绑定到视图上  视图->数据
+        //脏值检测
+        (function(){
+           window.angular={};
+            angular.module=function(app){
+                var root=document.querySelectorAll("*[na-app="+app+"]")
+                return{
+                    controller:controller(root),
+                    directive:directive(root)
+                }
+            }
+            function controller(ele){
+                return function(name,fn){
+                    var obj=ele.querySelectorAll("*[ng-controller="+name+"]");
+                    var $scope={};
+                    angular.$rootScope.push($scope);
+                    fn($scope)
+                }
+            }
+            function directive(ele){
+                return function(name){
+                    var obj=ele.querySelectorAll("input["+name+"]")[0];
+                    var val=obj.getAttribute(name);
+                    var newv;
+                    angular.$rootScopecope.forEach(function(obj){
+                        newv="";
+                        for(var i in obj){
+                            if(i==val){
+                                newv=obj[i];
+                                return;
+                            }
+                        }
+                    })
+                    var reg=new RegExp("\\{\\{\\s*"+val+"\\s*\\}\\}","g");
+                    var con=ele.innerHTML;
+                    var con=con.replace(reg,function(obj,index){
+                        return "<div class='my-ng'></div>"
+                    })
+                    ele.innerHTML=con;
+                    var obj=ele.querySelectorAll("input["+name+"]")[0];
+                    obj.oninput=function(){
+                        newv=obj.value;
+                        var div=ele.querySelectorAll("my_ng");
+                        for(var i=0;i<div.length;i++){
+                            div[i].innerHTML=newv;
+                        }
+                    }
+                    obj.value=newv;
+                }
+            }
+        })()
+        window.onload=function(){
+            var myapp=angular.module("myapp");
+            myapp.controller("ctrl",function($scope){
+                $scope.aa="123";
+            })
+            myapp.directive("ng-model","data");
+        }
+    </script>
+</head>
+<body ng-app="myapp" >
+<div ng-controller="ctrl">
+    <input type="text" ng-model="data">
+    <div>{{data}}</div>
+</div>
+</body>
+</html>

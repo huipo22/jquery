@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-1.11.3.js"></script>
+    <script src="trim.js"></script>
+    <script>
+        /*$(function(){
+//            $("div").animate({left:200,top:200,right:200,bottom:200},200)
+            $("div").animate({left:200},200);
+            $("div").animate({top:200},200);
+            $("div").animate({right:200},200);
+            $("div").animate({bottom:200},200);
+        })*/
+        $(function () {
+            var str="           wee ert    trere              ";
+            alert(trim(str,'middle'))
+        })
+    </script>
+    <style>
+        div{
+            width: 100px;height: 100px;background: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

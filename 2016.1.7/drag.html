@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+            /*拖拽事件加在document身上*/
+            $(document).on("mousedown",function(e){
+                var target= e.target;
+                var ox= e.offsetX;
+                var oy= e.offsetY;
+                console.log(e)
+                $(document).on("mousemove",function(e){
+                    var cx= e.clientX;
+                    var cy= e.clientY;
+                    /*ox oy 局部变量  在函数内部可以使用*/
+                    $(target).trigger("drag",{ox:ox,oy:oy,cx:cx,cy:cy})
+                })
+                $(document).on("mouseup",function(e){
+                    $(document).off("mousedown");
+                    $(document).off("mousemove");
+                })
+            })
+            /*需要定位*/
+            /*需要调用drag函数   data:当一个事件被触发时要传递event.data给事件处理函数。*/
+            $("div").on("drag",function(e,data){
+                $(this).css({
+                    left:data.cx-data.ox,
+                    top:data.cy-data.oy
+                })
+            });
+        })
+    </script>
+    <style>
+        div{
+            width: 300px;height: 300px;border: 1px solid red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

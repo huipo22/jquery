@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--刚开始必须先调用 angular.js -->
+    <script src="js/angular.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--调用指令 car.js 是封装过的，直接导入即可
+        car指令在js/car.js里面写的  打开car.js-->
+    <script src="js/car.js"></script>
+</head>
+<!--模块启动 ng-app  控制器 ng-controller -->
+<body ng-app="myApp" ng-controller="myCtrl">
+    <div class="container table-responsive" >
+        <form class="form-inline">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="搜索" ng-model="search">
+                </div>
+            </div>
+        </form>
+        <!--car标签就是一个指令 （指令也是angular.js里的新概念，可以上官网查查教程和资料）-->
+        <car></car>
+    </div>
+</body>
+</html>

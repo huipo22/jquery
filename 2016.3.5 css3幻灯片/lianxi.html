@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+    <style>
+        /*选择第n个元素*/
+        /*li:nth-child(3){
+            background: red;
+        }*/
+        /*除了第n个元素*/
+        /*li:not(:nth-child(3)){
+            background: red;
+        }*/
+       /* p:nth-of-type(2n){
+            background: blue;
+        }
+        li:nth-of-type(2n-1){
+            background: yellow;
+        }*/
+        /*偶数行*/
+       /* p:nth-child(even){
+            color: red;
+        }*/
+        /*奇数行*/
+        /*li:nth-child(odd){
+            color: blue;
+        }*/
+        /*p:nth-of-type(1){
+            width: 100px;height: 100px;
+            background: blue;
+            !*transform: translateX(200px);*!
+            transform: rotate(45deg);
+            transform: skew(30deg);
+            transform: scale(0.3,0.3);
+        }*/
+        body{
+            margin: 0;padding: 0;
+        }
+        .box{
+            width: 100%;height: 400px;background: red;
+            margin-left: 200px;
+        }
+        .box .one{
+            width: 200px;height: 100%;float: left;margin-left: -200px;background: #a50000;
+        }
+        .box .two{
+            width: 100%;height: 100%;background: green;
+        }
+        footer{
+            width: 500px;height: 500px;border: 1px solid;margin: 0 auto;
+            position: relative;
+        }
+        .nav{
+            width: 200px;height: 200px;border: 1px solid;
+            position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;
+        }
+    </style>
+    <script>
+        $(function(){
+//            $("p:nth-of-type(odd)").css("background","red");
+//            $("p[abc^='a']").css("background","red")
+//            $("p[abc$='g']").css("background","yellow")
+//            $("p[abc*='g']").css("background","yellow")
+            $("p[abc*='g']").css({"width":"100","height":"100","background":"red"})
+            $("nav").replaceWith("<b class='nav'>666666</b>")
+        })
+    </script>
+</head>
+<body>
+<!--<ul>
+    <li>01</li>
+    <p abc="adt">12</p>
+    <li>02</li>
+    <p abc="afg">13</p>
+    <li>03</li>
+    <p abc="agg">14
+</ul>-->
+<div class="box">
+    <div class="one">22</div>
+    <div class="two">44</div>
+</div>
+<footer><nav>rrrrr</nav></footer>
+</body>
+</html>

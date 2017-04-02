@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery-1.11.3.js"></script>
+    <script>
+        /*$(function(){
+//            $("div a").css("background","red");//祖先选择器 匹配所有的后代元素
+//            $("p a").css("background","red");//父子选择器   匹配所有的子元素
+//            $("p + b").css("background","red");//同辈  紧跟在后面的选择器(不是父子关系)  匹配所有紧接在 prev 元素后的 next 元素
+//            $("div~span").css("background","red");//同辈  div的同级span  匹配 prev 元素的所有同辈 siblings 元素
+//            $("b+i").css("background","red");
+//            $("div:first-child").css("color","red");//在父元素中作为第一个孩子存在
+//            $("div:nth-of-type(2)").css("color","green");
+//            $("div:nth-child(2)").css("color","green");
+//            $("span:last").css("color","green");
+
+//            $("div").eq(3).css("background","red")
+//            $("div").first().css("background","red")
+//            $("div").last().css("background","red")
+//            $("div").filter(document.getElementsByTagName("div")[2]).css("background","red")
+//              $("li").eq(3).parent().css("background","pink");
+//            $("li").eq(3).parent().siblings().last().css("background","pink");
+//            $("li").eq(3).parent().add("div").css("background","pink");
+            $("li").eq(3).parent().addBack().css("background","pink");
+        })*/
+        /*window.onload=function(){
+            var div=document.getElementsByTagName("div")[0];
+            div.name="erer";
+            div.setAttribute("aa","bb");
+            alert(div.name);
+        }*/
+        /*$(function(){
+            var flag=true;
+            $("input").click(function () {
+                if(flag){
+                    $("div").attr("vv","yy");
+                    flag=false;
+                }else{
+                    $("div").removeAttr("vv");
+                    flag=true;
+                }
+            })
+        })*/
+        /*$(function () {
+            var flag = true;
+            $("input").click(function () {
+                if (flag) {
+                    $("div").addClass("one");
+                    flag = false;
+                } else {
+                    $("div").removeClass("one");
+                    flag = true;
+                }
+            })
+        })*/
+        /*$(function(){
+            $("input").click(function(){
+                $("div").toggleClass("one");
+            })
+        })*/
+        $(function(){
+            /*$("input").click(function () {
+                alert("yu");
+            });
+            $("input").click()*/
+            /*$("input").on("click",function(){
+                alert(1)
+            })*/
+            /*$("input").on("click",{"aa":"bb","cc":"dd"},function(e){
+                alert(e.data.cc);
+                $(this).off();//关
+            })*/
+            /*$("input").one("click",function(){
+                alert(1);
+            })*/
+//            console.log($(".two").position().left);
+//            console.log($(".two").offset().left);
+//            console.log($(".two").width()+"------"+$(".two").innerWidth()+"------"+$(".two").outerWidth());
+            $(".two:first-child").css("background","red");
+        })
+    </script>
+    <style>
+        .one{
+            width: 500px;height:500px;border: 1px solid red;
+            /*position: relative;top:100px;left: 100px;*/
+        }
+        .two{
+            width: 300px;height:300px;border: 1px solid red;
+            /*padding:50px;position: absolute;left: 100px;*/
+        }
+        .three{
+            width: 150px;height:150px;border: 1px solid red;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!--<input type="button" value="btn">
+    <div>001</div>-->
+<div class="one">
+    <div class="two">
+        2323232323
+    </div>
+    <div class="two">ggggggggggg</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+@import 'fun.less';
+@color:red;
+@width:300px;
+@height:300px;
+div{
+  width: 200px;
+  height: 200px;
+  //background: @color;
+  -webkit-border-radius:20%;
+  -moz-border-radius: 40%;
+  -o-border-radius:60%;
+  -ms-border-radius:50%;
+  border-radius:50% ;
+  *width:150px;
+  _width:100px;
+}
+.ss{
+  width:200px;
+  height:200px;
+  .radius(20% 20%);
+  border:1px solid;
+  .shadow(true);
+}

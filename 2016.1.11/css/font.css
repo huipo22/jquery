@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'demo';
+  src: url('../iconfont/iconfont.eot');
+  /* IE9*/
+  src: url('../iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../iconfont/iconfont.woff') format('woff'), /* chrome、firefox */ url('../iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../iconfont/iconfont.svg#iconfont') format('svg');
+  /* iOS 4.1- */
+}
+/*变量*/
+/*变量*/
+/*字符串*/
+*[data-row="xiala"]:before {
+  content: "\e600";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="xiala"][icon-pos="top"]:before {
+  display: block;
+  content: "\e600";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="xiala"][icon-pos="right"]:before {
+  content: "\e600";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="xiala"][icon-pos="right"]:after {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="xiala"][icon-pos="bottom"]:before {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="xiala"][icon-pos="bottom"]:after {
+  display: block;
+  content: "\e600";
+  /*字符串*/
+  font-family: demo;
+}
+/*变量*/
+/*字符串*/
+*[data-row="baojia"]:before {
+  content: "\e601";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="baojia"][icon-pos="top"]:before {
+  display: block;
+  content: "\e601";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="baojia"][icon-pos="right"]:before {
+  content: "\e601";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="baojia"][icon-pos="right"]:after {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="baojia"][icon-pos="bottom"]:before {
+  content: "";
+  /*字符串*/
+  font-family: demo;
+}
+*[data-row="baojia"][icon-pos="bottom"]:after {
+  display: block;
+  content: "\e601";
+  /*字符串*/
+  font-family: demo;
+}

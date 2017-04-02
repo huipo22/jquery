@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #outer{
+            -webkit-perspective: 500px;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-perspective: 500px;
+            -webkit-perspective-origin: 50% 50%;
+            overflow: hidden;
+        }
+        #group{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style:preserve-3d;
+            /*border: 1px solid;*/
+            margin: 200px auto;
+            -webkit-animation: scroll 8s linear 0s infinite;
+            -moz-animation: scroll 8s linear 0s infinite;
+        }
+        .page{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            opacity: 0.5;
+            overflow: hidden;
+            filter: alpha(opacity=50);/*IE透明*/
+            font-size: 150px;
+            word-break: break-all;
+            word-wrap: break-word;/*单词太长，自动断开*/
+        }
+        #page1{
+            background-color: #10a6ce;
+            text-align: center;
+            line-height: 80px;
+        }
+        #page2{
+            background-color: #0073b3;
+            line-height: 80px;
+            -webkit-transform-origin: right;
+            -webkit-transform: rotateY(-90deg);
+            -moz-transform-origin: right;
+            -moz-transform: rotateY(-90deg);
+        }
+        #page3{
+            background-color: #07beea;
+            -webkit-transform-origin:left;
+            -webkit-transform:rotateY(90deg);
+            -moz-transform-origin:left;
+            -moz-transform:rotateY(90deg);
+            line-height: 80px;
+        }
+        #page4{
+            background-color: #29B4F0;
+            -webkit-transform-origin:top;
+            -webkit-transform:rotateX(-90deg);
+            -moz-transform-origin:top;
+            -moz-transform:rotateX(-90deg);
+            line-height: 80px;
+        }
+        #page5{
+            background-color: #6699cc;
+            -webkit-transform-origin:bottom;
+            -webkit-transform:rotateX(90deg);
+            -moz-transform-origin:bottom;
+            -moz-transform:rotateX(90deg);
+            line-height: 50px;
+        }
+        #page6{
+            background-color: #10a6ce;
+            -webkit-transform:translateZ(-200px);
+            -moz-transform:translateZ(-200px);
+            line-height: 50px;
+        }
+        @-moz-keyframes scroll {
+            0%{
+                -moz-transform: rotateY(0deg) rotateX(0deg);
+            }
+            50%{
+                -moz-transform: rotateY(360deg) rotateX(0deg);
+            }
+            100%{
+                -moz-transform: rotateY(360deg) rotateX(360deg);
+            }
+        }
+        @-webkit-keyframes scroll {
+            0%{
+                -webkit-transform: rotateY(0deg) rotateX(0deg);
+            }
+            50%{
+                -webkit-transform: rotateY(360deg) rotateX(0deg);
+            }
+            100%{
+                -webkit-transform: rotateY(360deg) rotateX(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="group">
+        <div id="page1" class="page">.</div>
+        <div id="page2" class="page">..</div>
+        <div id="page3" class="page">...</div>
+        <div id="page4" class="page">....</div>
+        <div id="page5" class="page">.....</div>
+        <div id="page6" class="page">......</div>
+    </div>
+</div>
+</body>
+</html>

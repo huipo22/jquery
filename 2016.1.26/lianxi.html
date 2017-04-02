@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="js/angular.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script>
+        /*模块启动必须是angular.module("",[])  里面的空数组是依赖注入，（angular.js里的新思想，可以百度查查，方便理解）*/
+        var app=angular.module("myapp",[]);
+        /*之后就是启动控制器 app.controller("ctrl",["$scope",function($scope) 这里面的$scope也是依赖注入，并且参数必须是$scope*/
+        app.controller("ctrl",["$scope",function($scope){
+            /*$scope.person 是个对象，页面中的html的info就是循环从这里获取的*/
+            $scope.person=[{
+                name:"王五"
+            },{
+                name:"张三"
+            },{
+                name:"李四"
+            }];
+
+        }])
+    </script>
+</head>
+<!--模块启动，每个页面只有一个 ng-app-->
+<body ng-app="myapp">
+<!--控制器 ng-controller-->
+<div ng-controller="ctrl">
+    <!--循环 ng-repeat-->
+        <li ng-repeat="info in person">
+            <!-- 绑定 ng-bind
+                <a href="" ng-bind="info.name"></a>和<a href="">{{info.name}}</a>的效果一样，只是方式不一样
+            -->
+            <a href="" ng-bind="info.name"></a>
+        </li>
+    <!--ng-module 指的是数据 -->
+    <input type="checkbox" ng-model="all">ALL<br>
+    <!--是否被选择-->
+    <input type="checkbox" ng-checked="all">111<br>
+    <input type="checkbox" ng-checked="all">222<br>
+    <input type="checkbox" ng-checked="all">333<br>
+
+    <button ng-init="count=0" ng-click="count=count+1">点击</button><br>
+    <p>按钮被点击了{{count}}次</p>
+
+    <pre>
+        A     B     C
+           d     e
+    </pre>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar"
+             aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+            <span class="sr-only">40% 完成</span>
+        </div>
+    </div>
+
+    <!--</ul>-->
+</div>
+</body>
+</html>

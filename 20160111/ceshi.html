@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="touch.code.baidu.com-master/touch-0.2.14.min.js"></script>
+    <script>
+       /* $(function(){
+            touch.on('div', 'touchstart', function(ev){
+                ev.startRotate();
+                ev.preventDefault();
+            });
+            touch.on("div","rotate",function(e){
+                $("div").css("transform", 'rotate(' + e.rotation + 'deg)')
+            })
+        })*/
+        $(function(){
+            touch.on("div","swipeleft",function(e){
+//                console.log(e.direction)
+                this.style.webkitTransform = "translate3d(" + e.distanceX + "px,0,0)";
+            })
+        })
+    </script>
+    <style>
+        div{
+            width: 500px;height: 500px;border: 1px solid red;overflow: hidden;
+            padding: 20px;
+            background: antiquewhite url("./img/23.jpg") no-repeat;
+            background-clip: content-box;
+            /*transform: rotate(30deg);*/
+            /*background-size: contain;*/
+            /*background-origin: padding-box;*/
+            /*background-position:right 20px bottom 30px;*/
+            /*border-radius: 50%;*/
+            /*box-shadow: 20px 20px 30px #000,-20px -20px 30px #000;*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+</html>

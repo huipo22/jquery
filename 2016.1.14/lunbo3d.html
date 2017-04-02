@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+        $(function(){
+            /*
+            * 大场景
+            * */
+            var bS=$("<div>");
+            bS.css({
+                width:800,height:400,/*border:"1px solid",*/position:"fixed",left:0,right:0,top:0,bottom:0,margin:"auto"}).appendTo("body");
+            var num=4;
+            var h=400/num;
+            var arr=[];
+            var a;
+            for(var i=0;i<num;i++){
+                /*场景中的照相机放在同一个位置 perspectiveOrigin */
+                if(i==0){
+                    a=300;
+                }else if(i==1){
+                    a=200;
+                }else if(i==2){
+                    a=100;
+                }else if(i==3){
+                    a=0;
+                }
+                /*循环创建小场景*/
+                var sS=$("<div>");
+                sS.css({width:"100%",height:100/num+"%",/*border:"1px solid",*/perspective:"3000px",perspectiveOrigin:"center "+a+"px"}).appendTo(bS);
+
+                /*创建盒子*/
+                var box=$("<div>");
+                arr.push(box);
+                box.css({width:"100%",height:"100%",position:"relative",transformStyle:"preserve-3d",transition:"transform 2s ease "+i*0.1+"s",transformOrigin:"center center 200px"}).appendTo(sS);
+
+                /*循环创建6个面*/
+                for(var j=0;j<6;j++){
+                    var pan=$("<div>");
+                    pan.css({position:"absolute",left:0,top:0}).appendTo(box);
+
+                    /*向上翻*/
+                    if(j==0){
+                        pan.css({
+                            width:'100%',
+                            height:'400px',
+                            transform:'rotateX(90deg)',
+                            transformOrigin:'top'
+                        })
+                    }else if(j==1){
+                        /*向左翻*/
+                        pan.css({
+                            width:"400px",
+                            height:"100%",
+                            transform:"rotateY(-90deg)",
+                            transformOrigin:"left",
+                            background:"url(img/222.jpg) no-repeat 0 "+(-i*h)+"px"
+                        })
+                    }else if(j==2){
+                        /*不动*/
+                        pan.css({
+                            width:"100%",
+                            height:"100%",
+                            transform:"rotateY(180deg)",
+                            background:"url(img/1.jpg) no-repeat 0 "+(-i*h)+"px"
+                        })
+                    }else if(j==3){
+                        /*向右翻*/
+                        pan.css({
+                            width:"400px",
+                            height:"100%",
+                            left:400,
+                            transform:"rotateY(90deg)",
+                            transformOrigin:"right",
+                            background:"url(img/111.jpg) no-repeat 0 "+(-i*h)+"px"
+                        })
+                    }else if(j==4){
+                        /*往下翻*/
+                        pan.css({
+                            width:"100%",
+                            height:"100%",
+                            bottom:0,
+                            transform:"rotateX(-90deg)",
+                            transformOrigin:"bottom",
+                        })
+                    }else if(j==5){
+                        /*从z轴向上400px*/
+                        pan.css({
+                            width:"100%",
+                            height:"100%",
+                            transform:"translateZ(400px)",
+                            background:"url(img/2.jpg) no-repeat 0 "+(-i*h)+"px"
+                        })
+                    }
+                }
+            }
+            var a=0;/*刚开始让角度为0*/
+            var t=setInterval(move,4000);
+            function move(){
+                a+=90;/*每次动画执行+90*/
+                for(var i=0;i<arr.length;i++){
+                    /*每次动画的角度都一样*/
+                    arr[i].css({transform:"rotateY("+a+"deg)"})
+                }
+            }
+            /*window失去焦点*/
+            window.onblur=function(){
+                console.log("close");
+                clearInterval(t);
+            }
+            /*window获得焦点*/
+            window.onfocus=function(){
+                t=setInterval(move,4000);
+                console.log("open")
+            }
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

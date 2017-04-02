@@ -1,0 +1,13 @@
+
+<div class="panel panel-default">
+    <div class="panel-heading clearfix">
+        <a href="javascript:;" ng-repeat="item in messages" ng-click="toggle(item.title)">
+            {{item.title}}
+        </a>
+    </div>
+    <div class="panel-body">
+        <div class="block" ng-repeat="item in messages" ng-class="{'show':item.title==title,'hide':item.title!==title}">
+            {{item.con}}
+        </div>
+    </div>
+</div>

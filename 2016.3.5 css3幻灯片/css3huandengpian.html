@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3幻灯片效果</title>
+    <style>
+        .huan{
+            width: 480px;height: 320px;
+            margin: 20px auto;
+            overflow: hidden;
+            background-origin: content-box;
+            background-position: 50% 50%;
+            -webkit-animation-name: loop;
+            -webkit-animation-duration: 20s;
+            -webkit-animation-iteration-count: infinite;
+        }
+        @-webkit-keyframes loop {
+           0%{
+               background: url(img/23.jpg) no-repeat;
+           }
+            50%{
+                background: url(img/2015-12-22_174623.jpg) no-repeat;
+            }
+            100%{
+                background: url(img/45.jpg) no-repeat;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="huan"></div>
+</body>
+</html>
